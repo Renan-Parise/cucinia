@@ -5,6 +5,7 @@ import (
 	"cucinia/db"
 	"cucinia/model"
 	"encoding/json"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -115,11 +116,28 @@ func (a *App) GetIngredients(c *gin.Context) {
 
 func (a *App) GetIngredientByID(c *gin.Context) {
 	id := c.Param("id")
+
+	val, err := a.rdb.Get("ingredient:" + id).Result()
+	if err == nil {
+		var ingredient model.Ingredient
+		if err := json.Unmarshal([]byte(val), &ingredient); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		c.JSON(http.StatusOK, ingredient)
+		return
+	}
+
 	ingredient, err := a.d.GetIngredientByID(id)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+	ingredientJSON, err := json.Marshal(ingredient)
+	if err == nil {
+		a.rdb.Set("ingredient:"+id, ingredientJSON, 0)
+	}
+
 	c.JSON(http.StatusOK, ingredient)
 }
 
@@ -129,10 +147,14 @@ func (a *App) CreateIngredient(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
 	if err := a.d.CreateIngredient(&ingredient); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+
+	a.rdb.Del("ingredients")
+
 	c.JSON(http.StatusCreated, ingredient)
 }
 
@@ -143,6 +165,8 @@ func (a *App) UpdateIngredient(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
+	a.rdb.Del("ingredient:" + id)
 
 	existingIngredient, err := a.d.GetIngredientByID(id)
 	if err != nil {
@@ -165,6 +189,11 @@ func (a *App) UpdateIngredient(c *gin.Context) {
 		return
 	}
 
+	ingredientJSON, err := json.Marshal(updatedIngredient)
+	if err == nil {
+		a.rdb.Set("ingredient:"+id, ingredientJSON, 0)
+	}
+
 	c.JSON(http.StatusOK, updatedIngredient)
 }
 
@@ -174,55 +203,148 @@ func (a *App) DeleteIngredient(c *gin.Context) {
 		c.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
 		return
 	}
+
+	a.rdb.Del("ingredient:" + id)
+	a.rdb.Del("ingredients")
+
 	c.JSON(http.StatusNoContent, gin.H{})
 }
 
 func (a *App) GetRecipes(c *gin.Context) {
+	val, err := a.rdb.Get("recipes").Result()
+	if err == nil {
+		var recipes []*model.Recipe
+		if err := json.Unmarshal([]byte(val), &recipes); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		c.JSON(http.StatusOK, recipes)
+		return
+	}
+
 	recipes, err := a.d.GetRecipes()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+
+	recipesJSON, err := json.Marshal(recipes)
+	if err == nil {
+		a.rdb.Set("recipes", recipesJSON, 0)
+	}
+
 	c.JSON(http.StatusOK, recipes)
 }
 
 func (a *App) GetRecipesByCuisine(c *gin.Context) {
 	cuisine := c.Param("cuisine")
+
+	val, err := a.rdb.Get("recipes:cuisine:" + cuisine).Result()
+	if err == nil {
+		var recipes []*model.Recipe
+		if err := json.Unmarshal([]byte(val), &recipes); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		c.JSON(http.StatusOK, recipes)
+		return
+	}
+
 	recipes, err := a.d.GetRecipesByCuisine(cuisine)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+
+	recipesJSON, err := json.Marshal(recipes)
+	if err == nil {
+		a.rdb.Set("recipes:cuisine:"+cuisine, recipesJSON, 0)
+	}
+
 	c.JSON(http.StatusOK, recipes)
 }
 
 func (a *App) GetRecipeByID(c *gin.Context) {
 	id := c.Param("id")
-	recipes, err := a.d.GetRecipeByID(id)
+
+	val, err := a.rdb.Get("recipe:" + id).Result()
+	if err == nil {
+		var recipe *model.Recipe
+		if err := json.Unmarshal([]byte(val), &recipe); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		c.JSON(http.StatusOK, recipe)
+		return
+	}
+
+	recipe, err := a.d.GetRecipeByID(id)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	c.JSON(http.StatusOK, recipes)
+
+	recipeJSON, err := json.Marshal(recipe)
+	if err == nil {
+		a.rdb.Set("recipe:"+id, recipeJSON, 0)
+	}
+
+	c.JSON(http.StatusOK, recipe)
 }
 
 func (a *App) GetRecipesByTypeOf(c *gin.Context) {
 	typeOf := c.Param("type")
+
+	val, err := a.rdb.Get("recipes:type:" + typeOf).Result()
+	if err == nil {
+		var recipes []*model.Recipe
+		if err := json.Unmarshal([]byte(val), &recipes); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		c.JSON(http.StatusOK, recipes)
+		return
+	}
+
 	recipes, err := a.d.GetRecipesByTypeOf(typeOf)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+
+	recipesJSON, err := json.Marshal(recipes)
+	if err == nil {
+		a.rdb.Set("recipes:type:"+typeOf, recipesJSON, 0)
+	}
+
 	c.JSON(http.StatusOK, recipes)
 }
 
 func (a *App) GetRecipesByIngredient(c *gin.Context) {
 	ingredient := c.Param("ingredient")
+
+	val, err := a.rdb.Get("recipes:ingredient:" + ingredient).Result()
+	if err == nil {
+		var recipes []*model.Recipe
+		if err := json.Unmarshal([]byte(val), &recipes); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		c.JSON(http.StatusOK, recipes)
+		return
+	}
+
 	recipes, err := a.d.GetRecipesByIngredient(ingredient)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+
+	recipesJSON, err := json.Marshal(recipes)
+	if err == nil {
+		a.rdb.Set("recipes:ingredient:"+ingredient, recipesJSON, 0)
+	}
+
 	c.JSON(http.StatusOK, recipes)
 }
 
@@ -232,10 +354,14 @@ func (a *App) CreateRecipe(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
 	if err := a.d.CreateRecipe(&recipe); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+
+	a.rdb.Del("recipes")
+
 	c.JSON(http.StatusCreated, recipe)
 }
 
@@ -246,10 +372,14 @@ func (a *App) UpdateRecipe(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
 	if err := a.d.UpdateRecipe(id, &recipe); err != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
 		return
 	}
+
+	a.rdb.Del("recipe:" + id)
+
 	c.JSON(http.StatusOK, recipe)
 }
 
@@ -259,6 +389,10 @@ func (a *App) DeleteRecipe(c *gin.Context) {
 		c.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
 		return
 	}
+
+	a.rdb.Del("recipe:" + id)
+	a.rdb.Del("recipes")
+
 	c.JSON(http.StatusNoContent, gin.H{})
 }
 
@@ -267,6 +401,19 @@ func (a *App) GetRecipesByMultipleCriteria(c *gin.Context) {
 	ingredient := c.Query("ingredient")
 	typeOf := c.Query("type_of")
 	cuisine := c.Query("cuisine")
+
+	cacheKey := buildRecipesCacheKey(excludedRestriction, ingredient, typeOf, cuisine)
+
+	val, err := a.rdb.Get(cacheKey).Result()
+	if err == nil {
+		var recipes []*model.Recipe
+		if err := json.Unmarshal([]byte(val), &recipes); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		c.JSON(http.StatusOK, recipes)
+		return
+	}
 
 	var excludedRestrictions []string
 	if excludedRestriction != "" {
@@ -278,7 +425,18 @@ func (a *App) GetRecipesByMultipleCriteria(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+
+	recipesJSON, err := json.Marshal(recipes)
+	if err == nil {
+		a.rdb.Set(cacheKey, recipesJSON, 0)
+	}
+
 	c.JSON(http.StatusOK, recipes)
+}
+
+func buildRecipesCacheKey(excludedRestriction, ingredient, typeOf, cuisine string) string {
+	return fmt.Sprintf("recipes:excluded:%s:ingredient:%s:type:%s:cuisine:%s",
+		excludedRestriction, ingredient, typeOf, cuisine)
 }
 
 func (a *App) RegisterUser(c *gin.Context) {
@@ -349,21 +507,62 @@ func (a *App) DeleteUser(c *gin.Context) {
 }
 
 func (a *App) GetUsers(c *gin.Context) {
+	val, err := a.rdb.Get("users").Result()
+	if err == nil {
+		var users []*model.User
+		if err := json.Unmarshal([]byte(val), &users); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse user data"})
+			return
+		}
+		c.JSON(http.StatusOK, users)
+		return
+	}
+
 	users, err := a.d.GetAllUsers()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+
+	usersJSON, err := json.Marshal(users)
+	if err == nil {
+		a.rdb.Set("users", usersJSON, 0)
+	}
+
 	c.JSON(http.StatusOK, users)
 }
 
 func (a *App) GetUserByEmail(c *gin.Context) {
 	email := c.Param("email")
 
+	val, err := a.rdb.Get("user:" + email).Result()
+	if err == nil {
+		var user *model.User
+		if err := json.Unmarshal([]byte(val), &user); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse user data"})
+			return
+		}
+
+		user.Password = ""
+
+		c.JSON(http.StatusOK, user)
+		return
+	}
+
 	user, err := a.d.GetUserByEmail(email)
 	if err != nil {
-		c.JSON(http.StatusNotFound, gin.H{"error": "Usuário não encontrado."})
+		c.JSON(http.StatusNotFound, gin.H{"error": "User not found."})
 		return
+	}
+
+	if user == nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "User not found."})
+		return
+	}
+
+	userJSON, err := json.Marshal(user)
+	if err == nil {
+		a.rdb.Set("user:"+email, userJSON, 0)
 	}
 
 	user.Password = ""
@@ -526,6 +725,30 @@ func (a *App) GetUserLikedRecipes(c *gin.Context) {
 		return
 	}
 
+	val, err := a.rdb.Get("user:" + email).Result()
+	if err == nil {
+		var user *model.User
+		if err := json.Unmarshal([]byte(val), &user); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse user data"})
+			return
+		}
+
+		var detailedRecipes []model.Recipe
+		for _, recipeID := range user.LikedRecipes {
+			recipe, err := a.getRecipeByIDWithCache(recipeID)
+			if err != nil {
+				log.Println("Error fetching recipe by ID:", err)
+				continue
+			}
+			if recipe != nil {
+				detailedRecipes = append(detailedRecipes, *recipe)
+			}
+		}
+
+		c.JSON(http.StatusOK, gin.H{"liked_recipes": detailedRecipes})
+		return
+	}
+
 	user, err := a.d.GetUserByEmail(email)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch user"})
@@ -537,10 +760,14 @@ func (a *App) GetUserLikedRecipes(c *gin.Context) {
 		return
 	}
 
-	var detailedRecipes []model.Recipe
+	userJSON, err := json.Marshal(user)
+	if err == nil {
+		a.rdb.Set("user:"+email, userJSON, 0)
+	}
 
+	var detailedRecipes []model.Recipe
 	for _, recipeID := range user.LikedRecipes {
-		recipe, err := a.d.GetRecipeByID(recipeID)
+		recipe, err := a.getRecipeByIDWithCache(recipeID)
 		if err != nil {
 			log.Println("Error fetching recipe by ID:", err)
 			continue
@@ -551,6 +778,29 @@ func (a *App) GetUserLikedRecipes(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{"liked_recipes": detailedRecipes})
+}
+
+func (a *App) getRecipeByIDWithCache(id string) (*model.Recipe, error) {
+	val, err := a.rdb.Get("recipe:" + id).Result()
+	if err == nil {
+		var recipe model.Recipe
+		if err := json.Unmarshal([]byte(val), &recipe); err != nil {
+			return nil, err
+		}
+		return &recipe, nil
+	}
+
+	recipe, err := a.d.GetRecipeByID(id)
+	if err != nil {
+		return nil, err
+	}
+
+	recipeJSON, err := json.Marshal(recipe)
+	if err == nil {
+		a.rdb.Set("recipe:"+id, recipeJSON, 0)
+	}
+
+	return recipe, nil
 }
 
 func (a *App) Gemini(c *gin.Context) {
