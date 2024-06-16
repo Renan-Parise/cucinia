@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  dev_db:
+    image: mongo:6.0.3
+    environment:
+      INIT_WAIT_SEC: 4
+      MONGO_INITDB_DATABASE: cucinia
+    ports:
+      - 27017:27017
+    volumes:
+      - ./init-db.js:/docker-entrypoint-initdb.d/init.js
+  redis:
+    image: redis:7.2
+    ports:
+      - "6379:6379"

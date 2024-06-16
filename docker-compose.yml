@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    container_name: app
+    ports:
+      - 8080:8080
+      - 3000:3000
+    depends_on:
+      - db
+    environment:
+      profile: prod
+  db:
+    image: mongo:6.0.3
+    container_name: db
+    environment:
+      INIT_WAIT_SEC: 3
+      MONGO_INITDB_DATABASE: cucinia
+    volumes:
+      - ./init-db.js:/docker-entrypoint-initdb.d/init.js

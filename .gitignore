@@ -1,0 +1,11 @@
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+frontend/node_modules
+frontend/build
+frontend/npm-debug.log*
