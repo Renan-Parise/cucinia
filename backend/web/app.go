@@ -80,6 +80,8 @@ func (a *App) setupRoutes(cors bool) {
 		api.POST("/like-recipe", a.LikeRecipe)
 		api.POST("/unlike-recipe", a.UnlikeRecipe)
 
+		api.POST("/upgrade", a.UpgradeToPremium)
+
 		api.POST("/gen", a.Gemini)
 	}
 }
@@ -401,8 +403,9 @@ func (a *App) GetRecipesByMultipleCriteria(c *gin.Context) {
 	ingredient := c.Query("ingredient")
 	typeOf := c.Query("type_of")
 	cuisine := c.Query("cuisine")
+	userPremium := c.Query("premium") == "true"
 
-	cacheKey := buildRecipesCacheKey(excludedRestriction, ingredient, typeOf, cuisine)
+	cacheKey := buildRecipesCacheKey(excludedRestriction, ingredient, typeOf, cuisine, userPremium)
 
 	val, err := a.rdb.Get(cacheKey).Result()
 	if err == nil {
@@ -420,27 +423,42 @@ func (a *App) GetRecipesByMultipleCriteria(c *gin.Context) {
 		excludedRestrictions = append(excludedRestrictions, excludedRestriction)
 	}
 
-	recipes, err := a.d.GetRecipesByMultipleCriteria(excludedRestrictions, ingredient, typeOf, cuisine)
+	recipes, err := a.d.GetRecipesByMultipleCriteria(excludedRestrictions, ingredient, typeOf, cuisine, userPremium)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 
-	recipesJSON, err := json.Marshal(recipes)
+	filteredRecipes := filterRecipesByPremiumStatus(recipes, userPremium)
+
+	recipesJSON, err := json.Marshal(filteredRecipes)
 	if err == nil {
 		a.rdb.Set(cacheKey, recipesJSON, 0)
 	}
 
-	c.JSON(http.StatusOK, recipes)
+	c.JSON(http.StatusOK, filteredRecipes)
 }
 
-func buildRecipesCacheKey(excludedRestriction, ingredient, typeOf, cuisine string) string {
-	return fmt.Sprintf("recipes:excluded:%s:ingredient:%s:type:%s:cuisine:%s",
-		excludedRestriction, ingredient, typeOf, cuisine)
+func filterRecipesByPremiumStatus(recipes []*model.Recipe, userPremium bool) []*model.Recipe {
+	filteredRecipes := make([]*model.Recipe, 0)
+
+	for _, recipe := range recipes {
+		if userPremium || !recipe.Premium {
+			filteredRecipes = append(filteredRecipes, recipe)
+		}
+	}
+
+	return filteredRecipes
+}
+
+func buildRecipesCacheKey(excludedRestriction, ingredient, typeOf, cuisine string, userPremium bool) string {
+	return fmt.Sprintf("recipes:excluded:%s:ingredient:%s:type:%s:cuisine:%s:premium:%t",
+		excludedRestriction, ingredient, typeOf, cuisine, userPremium)
 }
 
 func (a *App) RegisterUser(c *gin.Context) {
 	var user model.User
+
 	if err := c.BindJSON(&user); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Payload inválido."})
 		return
@@ -461,6 +479,12 @@ func (a *App) RegisterUser(c *gin.Context) {
 
 	if err := a.d.CreateUser(&user); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Falha ao criar usuário."})
+		return
+	}
+
+	err = a.invalidateUsersCache()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Falha ao limpar cache."})
 		return
 	}
 
@@ -803,6 +827,40 @@ func (a *App) getRecipeByIDWithCache(id string) (*model.Recipe, error) {
 	return recipe, nil
 }
 
+func (a *App) UpgradeToPremium(c *gin.Context) {
+	var upgradeRequest struct {
+		Email string `json:"email"`
+	}
+
+	if err := c.ShouldBindJSON(&upgradeRequest); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request body"})
+		return
+	}
+
+	err := a.d.SetUserPremium(upgradeRequest.Email, true)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	if err := a.invalidateUserCache(upgradeRequest.Email); err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to update cache"})
+		return
+	}
+
+	user, err := a.d.GetUserByEmail(upgradeRequest.Email)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch updated user"})
+		return
+	}
+	if user == nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "User not found"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "User upgraded to premium", "user": user})
+}
+
 func (a *App) Gemini(c *gin.Context) {
 	file, _, err := c.Request.FormFile("image")
 	if err != nil {
@@ -828,4 +886,21 @@ func (a *App) Gemini(c *gin.Context) {
 	res := ai.SendImageFromFile(out.Name())
 	ai.PrintResponse(res)
 	c.JSON(http.StatusOK, res)
+}
+
+func (a *App) invalidateUsersCache() error {
+	err := a.rdb.Del("users").Err()
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *App) invalidateUserCache(email string) error {
+	key := "user:" + email
+	err := a.rdb.Del(key).Err()
+	if err != nil {
+		return err
+	}
+	return nil
 }

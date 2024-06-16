@@ -17,6 +17,7 @@ type Recipe struct {
 	Ingredients []string           `json:"ingredients" bson:"ingredients"`
 	Difficulty  string             `json:"difficulty" bson:"difficulty"`
 	Restriction []string           `json:"restriction" bson:"restriction"`
+	Premium     bool               `json:"premium" bson:"premium"`
 	Percentage  float64            `json:"percentage" bson:"percentage"`
 }
 
@@ -27,4 +28,5 @@ type User struct {
 	Ingredients  []string `json:"ingredients" bson:"ingredients"`
 	Restriction  []string `json:"restriction" bson:"restriction"`
 	LikedRecipes []string `json:"liked_recipes" bson:"liked_recipes"`
+	Premium      bool     `json:"premium" bson:"premium"`
 }

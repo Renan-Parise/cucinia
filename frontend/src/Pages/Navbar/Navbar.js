@@ -47,7 +47,13 @@ function Navbar() {
           </div>
         </div>
         <div className="navbar-center">
-          <a className="btn btn-ghost text-xl">Cucinia</a>
+          <a className="btn btn-ghost text-xl">Cucinia
+            {user && user.premium && (
+              <div class="badge text-neutral bg-yellow-400">
+                PRO
+              </div>
+            )}
+          </a>
         </div>
         <div className="navbar-end">
           <button className="btn btn-ghost btn-circle">

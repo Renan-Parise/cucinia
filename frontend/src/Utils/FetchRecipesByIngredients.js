@@ -2,6 +2,7 @@ const fetchRecipesByIngredients = async (user, setLoadingRecipes, setRecipes) =>
     setLoadingRecipes(true);
     const userIngredients = user ? user.ingredients.join(',') : '';
     const localStorageKey = 'storedRecipes';
+    const userPremium = user ? user.premium : false;
 
     let storedRecipes = JSON.parse(localStorage.getItem(localStorageKey)) || {};
 
@@ -25,7 +26,7 @@ const fetchRecipesByIngredients = async (user, setLoadingRecipes, setRecipes) =>
     localStorage.setItem('storedRequests', JSON.stringify(storedRequests));
 
     try {
-        const response = await fetch(`/api/v1/recipes/by-multiple-criteria?ingredient=${userIngredients}`);
+        const response = await fetch(`/api/v1/recipes/by-multiple-criteria?ingredient=${userIngredients}&premium=${userPremium}`);
         const data = await response.json();
         
         if (Array.isArray(data)) {

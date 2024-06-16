@@ -9,21 +9,25 @@ db.ingredients.insertMany([
     { name: "Queijo" },
     { name: "Iogurte" },
     { name: "Maionese" },
-    { name: "Requeijão" },
+    { name: "Requeijão" },   
+    { name: "Mostarda" },
 
     { name: "Essência de Baunilha" },
     { name: "Chocolate" },
     { name: "Noz Moscada" },
     { name: "Cravo" },
-   
-    { name: "Pão" },
-    
     { name: "Mel" },
     { name: "Chá" },
+   
+    { name: "Pão" },
+    { name: "Feijão" },
+    { name: "Arroz" },
     
     { name: "Molho de Tomate" },
     { name: "Alho" },
     { name: "Óleo" },
+    { name: "Cebola" },
+    { name: "Pimentão" },
 
     { name: "Aveia" },
     { name: "Farinha" },
@@ -36,9 +40,20 @@ db.ingredients.insertMany([
     { name: "Cacau em Pó" },
     { name: "Bicarbonato de Sódio" },
     { name: "Tapioca" },
-    
-    { name: "Frango" },
+    { name: "Fubá" },
+    { name: "Polvilho Azedo" },
+
+    { name: "Macarrão" },
+    { name: "Mandioca" },
+    { name: "Massa de Lasanha" },
+   
+    { name: "Carne Moída" },
+    { name: "Carne Bovina" },
+    { name: "Carne Suína" },
+    { name: "Carne de Frango" },
     { name: "Presunto" },
+    { name: "Bacon" },
+    { name: "Salsicha" },
 
     { name: "Tomate" },
     { name: "Morango" },
@@ -49,98 +64,115 @@ db.ingredients.insertMany([
     { name: "Banana" },
     { name: "Laranja" },
     { name: "Coco" },
+    { name: "Abacate" },
+
+    { name: "Batata" },
+    { name: "Abobrinha" },
+    { name: "Cenoura" },
+    { name: "Repolho" },
+    { name: "Couve" },
+
 ]);
 
 db.recipes.insertMany([
     {
         name: "Ovos mexidos",
-        description: "Ovos mexidos de café da manhã são uma opção ótima para te dar aquele gostinho de café da amanhã de hotel. <br><br>Ingredientes:<br>4 ovos<br>1 colher (sopa) de manteiga<br><br>Modo de preparo:<br>Passe toda a manteiga no fundo de uma frigideira e coloque os ovos sobre a manteiga. <br>Em seguida, quebre as gemas sem mexer os ovos. <br>Leve a frigideira para o fogo com fogo baixo. <br> Seus ovos mexidos logo ficarão prontos!",
+        description: "Ovos mexidos de café da manhã são uma opção ótima para te dar aquele gostinho de café da amanhã de hotel. Macios e cremosos, preparados com ovos frescos, levemente batidos e cozidos lentamente em fogo baixo. <br><br>Ingredientes:<br>4 ovos<br>1 colher (sopa) de manteiga<br><br>Modo de preparo:<br>Passe toda a manteiga no fundo de uma frigideira e coloque os ovos sobre a manteiga. <br>Em seguida, quebre as gemas sem mexer os ovos. <br>Leve a frigideira para o fogo com fogo baixo. <br> Seus ovos mexidos logo ficarão prontos!",
         cuisine: "brasileira",
         type_of: 1,
-        image: "https://images.pexels.com/photos/8055161/pexels-photo-8055161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        image: "https://images.pexels.com/photos/4103221/pexels-photo-4103221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Ovo", "Manteiga"],
         difficulty: "fácil",
-        restriction: ["vegano", "laticinio"]
+        restriction: ["vegano", "laticinio"],
+        premium: true
     },
     {
         name: "Waffles",
-        description: "Ele é delicioso, perfeito para o café da manhã e as crianças adoram!<br><br>Ingredientes:<br>2 xícaras (chá) de farinha de trigo<br>2 colher (sopa) de açúcar<br>2 colheres (chá) de fermento em pó<br>1/2 colher (chá) de sal<br>2 colheres amido de milho<br>3 ovos batidos<br>4 colheres (sopa) de manteiga sem sal derretida<br>1 e 3/4 de xícara (chá) de leite<br>1 colher (sopa) de essência de baunilha<br><br>Modo de preparo:<br>Peneire em um recipiente a farinha de trigo, o açúcar, o amido, o fermento e o sal. Reserve.<br>Em outro recipiente misture os ovos batidos com o leite, a manteiga derretida e a essência de baunilha.<br>Despeje sobre a mistura de farinha e rapidamente incorpore os ingredientes.<br>Aqueça o aparelho para Waffles. Coloque uma concha rasa de massa e espalhe até cobrir o molde do aparelho, feche a tampa e deixe assar até a massa ficar bem dourada.<br>Retire com espátulas de silicone. Sirva com mel, frutas ou geleia.",
+        description: "Ele é delicioso, perfeito para o café da manhã e as crianças adoram! Dourado e crocante, preparado com uma massa leve e fofinha, servido sozinho para apreciar sua simplicidade e textura única.<br><br>Ingredientes:<br>2 xícaras (chá) de farinha de trigo<br>2 colher (sopa) de açúcar<br>2 colheres (chá) de fermento em pó<br>1/2 colher (chá) de sal<br>2 colheres amido de milho<br>3 ovos batidos<br>4 colheres (sopa) de manteiga sem sal derretida<br>1 e 3/4 de xícara (chá) de leite<br>1 colher (sopa) de essência de baunilha<br><br>Modo de preparo:<br>Peneire em um recipiente a farinha de trigo, o açúcar, o amido, o fermento e o sal. Reserve.<br>Em outro recipiente misture os ovos batidos com o leite, a manteiga derretida e a essência de baunilha.<br>Despeje sobre a mistura de farinha e rapidamente incorpore os ingredientes.<br>Aqueça o aparelho para Waffles. Coloque uma concha rasa de massa e espalhe até cobrir o molde do aparelho, feche a tampa e deixe assar até a massa ficar bem dourada.<br>Retire com espátulas de silicone. Sirva com mel, frutas ou geleia.",
         cuisine: "americana",
         type_of: 1,
-        image: "https://images.pexels.com/photos/4963802/pexels-photo-4963802.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        image: "https://images.pexels.com/photos/4109381/pexels-photo-4109381.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Farinha", "Fermento", "Amido de Milho", "Manteiga", "Essência de Baunilha", "Ovo", "Leite"],
         difficulty: "médio",
         restriction: ["gluten", "vegano", "laticinio"],
+        premium: false
     },
     {
         name: "Salada de frutas",
-        description: "Fresquinha e pronta para saborear! Imagine uma mistura colorida de frutas frescas e suculentas.<br><br>Ingredientes:<br>1/2 mamão picadinho<br>1/2 melão picadinho<br>1 maçã grande com casca picadinha<br>2 bananas em rodelas e depois cortadas ao meio<br>Suco de 3 laranjas<br><br>Modo de preparo:<br>Misture todas as frutas com o suco de laranja (exceto a banana).<br>Coloque a banana apenas na hora de servir a salada, pois ela fica estraga facilmente, comprometendo todo o gosto da salada.<br>Se desejar acrescente manga e abacaxi picadinhos.",
+        description: "Uma mistura refrescante de frutas da estação, como melão, mamão, maçã, banana e laranja, cortadas em pedaços pequenos e servidas em uma tigela. Uma opção leve e saudável para satisfazer os desejos de frutas frescas.<br><br>Ingredientes:<br>1/2 mamão picadinho<br>1/2 melão picadinho<br>1 maçã grande com casca picadinha<br>2 bananas em rodelas e depois cortadas ao meio<br>Suco de 3 laranjas<br><br>Modo de preparo:<br>Misture todas as frutas com o suco de laranja (exceto a banana).<br>Coloque a banana apenas na hora de servir a salada, pois ela fica estraga facilmente, comprometendo todo o gosto da salada.<br>Se desejar acrescente manga e abacaxi picadinhos.",
         cuisine: "brasileira",
         type_of: 1,
         image: "https://images.pexels.com/photos/6331131/pexels-photo-6331131.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Melão", "Mamão", "Maçã", "Banana", "Laranja"],
         difficulty: "fácil",
         restriction: [],
+        premium: false
     },
     {
         name: "Vitamina de banana",
-        description: "Uma explosão de sabor e energia em um copo! A suavidade cremosa da banana misturada com o frescor do leite gelado e uma pitada de doçura natural.<br><br>Ingredientes:<br>5 bananas<br>1 litro de leite<br>Açúcar a gosto<br>Gelo a gosto<br><br>Modo de preparo:<br>Coloque todos os ingredientes dentro do liquidificador e bata por cerca de 2 minutos.",
+        description: "Uma vitamina clássica e reconfortante, preparada com bananas maduras, leite fresco e uma pitada de açúcar ou mel, se preferir um toque doce adicional. Batida até ficar cremosa e homogênea, é uma opção nutritiva e deliciosa para começar o dia com energia.<br><br>Ingredientes:<br>5 bananas<br>1 litro de leite<br>Açúcar a gosto<br>Gelo a gosto<br><br>Modo de preparo:<br>Coloque todos os ingredientes dentro do liquidificador e bata por cerca de 2 minutos.",
         cuisine: "brasileira",
         type_of: 1,
         image: "https://images.pexels.com/photos/4112870/pexels-photo-4112870.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Leite", "Banana"],
         difficulty: "fácil",
         restriction: ["laticinio", "vegano"],
+        premium: false
     },
     {
         name: "Cappuccino cremoso",
-        description: "Uma xícara fria cheia de café forte, leite bem cremoso e uma camada espumosa por cima.<br><br>Ingredientes:<br>8 pedras de gelo<br>1 caixinha de creme de leite (se possível gelada)<br>3 colheres de leite em pó<br>200 ml de leite gelado<br>3 colheres (sopa) cheias de café em pó<br>Só use açúcar se gostar de um pouquinho mais doce<br><br>Modo de preparo:<br>Bata bem todos os ingredientes no liquidificador. Pronto, é só servir!",
+        description: "Um cappuccino tradicionalmente preparado, com uma base de café expresso forte e cremoso, leite vaporizado e uma generosa camada de espuma de leite por cima. Servido em uma xícara quente, é uma opção reconfortante e cheia de sabor para os amantes de café.<br><br>Ingredientes:<br>1 caixinha de creme de leite<br>3 colheres de leite em pó<br>200 ml de leite<br>3 colheres (sopa) cheias de café em pó<br>Só use açúcar se gostar de um pouquinho mais doce<br><br>Modo de preparo:<br>Bata bem todos os ingredientes no liquidificador. Pronto, é só aquecer e servir!",
         cuisine: "italiana",
         type_of: 1,
         image: "https://images.pexels.com/photos/302904/pexels-photo-302904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Creme de Leite", "Leite em Pó", "Leite", "Café em Pó"],
         difficulty: "fácil",
         restriction: ["laticinio", "vegano"],
+        premium: false
     },
     {
         name: "Cookies",
-        description: "Uma explosão de sabor em cada mordida! Uma bandeja quente, saindo do forno, repleta de cookies dourados por fora e macios por dentro.<br><br>Ingredientes:<br>125 g de manteiga sem sal em temperatura ambiente<br>3/4 xícara de açúcar<br>1/2 xícara de açúcar mascavo<br>1 ovo<br>1 e 3/4 de xícara de farinha de trigo<br>1 colher (chá) de fermento em pó<br>300 g de chocolate meio amargo picado<br>1 colher (chá) de essência de baunilha<br>Para fazer cookie de chocolate acrescentar 1/4 xícara de chocolate em pó<br><br>Modo de preparo:<br>Misture a manteiga, açúcar mascavo, açúcar, essência de baunilha (e chocolate em pó, se for fazer cookies com base de chocolate).<br>Adicione o ovo batido aos poucos e misture bem.<br>Acrescente a farinha aos poucos e misture bem (pode ser na mão ou na batedeira).<br>Por último, adicione o fermento e misture só para incorporá-lo à massa.<br>Depois da massa bem misturada, adicione o chocolate picado.<br>Forme bolinhas pequenas e asse em forno pré aquecido, sobre papel manteiga, por aproximadamente 15 a 20 minutos (250° C).",
+        description: "Uma explosão de sabor em cada mordida! Uma bandeja quente, saindo do forno, repleta de cookies dourados por fora e macios por dentro. Repleto de pedaços generosos de chocolate ao leite, derretendo na boca a cada mordida. <br><br>Ingredientes:<br>125 g de manteiga sem sal em temperatura ambiente<br>3/4 xícara de açúcar<br>1/2 xícara de açúcar mascavo<br>1 ovo<br>1 e 3/4 de xícara de farinha de trigo<br>1 colher (chá) de fermento em pó<br>300 g de chocolate meio amargo picado<br>1 colher (chá) de essência de baunilha<br>Para fazer cookie de chocolate acrescentar 1/4 xícara de chocolate em pó<br><br>Modo de preparo:<br>Misture a manteiga, açúcar mascavo, açúcar, essência de baunilha (e chocolate em pó, se for fazer cookies com base de chocolate).<br>Adicione o ovo batido aos poucos e misture bem.<br>Acrescente a farinha aos poucos e misture bem (pode ser na mão ou na batedeira).<br>Por último, adicione o fermento e misture só para incorporá-lo à massa.<br>Depois da massa bem misturada, adicione o chocolate picado.<br>Forme bolinhas pequenas e asse em forno pré aquecido, sobre papel manteiga, por aproximadamente 15 a 20 minutos (250° C).",
         cuisine: "americana",
         type_of: 1,
         image: "https://images.pexels.com/photos/189536/pexels-photo-189536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Manteiga", "Ovo","Farinha","Fermento","Essência de Baunilha","Chocolate em Pó","Chocolate"],
         difficulty: "médio",
         restriction: ["vegano", "gluten", "laticinio"],
+        premium: false
     },
     {
         name: "Torrada",
-        description: "Prontas para serem saboreadas a qualquer momento do dia! Imagine fatias douradas de pão recém-torrado, crocantes por fora e macias por dentro.<br><br>Ingredientes:<br>2 colheres (sopa) de manteiga<br>1 colher (sopa) de óleo<br>1 colher (sopa) de queijo parmesão ralado<br>1/2 colher (sopa) de orégano<br>1 pitada de sal<br>Pães franceses secos cortados em rodelas<br><br>Modo de preparo:<br>Misture todos os ingredientes com uma colher em uma vasilha média.<br>Passe o tempero nas rodelas do pão.<br>Acomode as rodelas em uma assadeira (sem untar) e leve ao forno médio, até perceber que o tempero está douradinho.<br>Sirva em seguida.",
+        description: "Uma fatia de pão de sua escolha, levemente tostada até ficar dourada e crocante. Servida com queijo, é uma opção clássica e reconfortante para começar o dia.<br><br>Ingredientes:<br>1 colher (sopa) de queijo parmesão ralado<br>1/2 colher (sopa) de orégano<br>1 pitada de sal<br>Pães franceses secos cortados em rodelas<br><br>Modo de preparo:<br>Coloque o queijo e os temperos nas rodelas do pão.<br>Acomode as rodelas em uma assadeira (sem untar) e leve ao forno médio, até perceber que o tempero está douradinho.<br>Sirva em seguida.",
         cuisine: "brasileira",
         type_of: 1,
         image: "https://images.pexels.com/photos/19740636/pexels-photo-19740636/free-photo-of-placa-prato-torrada-brinde.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        ingredients: ["Manteiga", "Óleo", "Queijo", "Pão"],
+        ingredients: ["Queijo", "Pão"],
         difficulty: "fácil",
         restriction: ["gluten", "laticinio" , "vegano"],
+        premium: false
     },
     {
         name: "Bolacha de mel",
-        description: "Uma combinação irresistível de doçura e crocância! Imagine uma bolacha dourada e delicadamente crocante, perfumada com o aroma reconfortante do mel puro.<br><br>Ingredientes:<br>400 g de mel<br>250 g de açúcar<br>250 g de manteiga<br>3 ovos<br>1 colher de sopa de cravo moído<br>1 colher de sopa de canela em pó <br>1 colher de sopa de noz moscada ralada<br>1/2 colher de sopa de fermento em pó<br>1/2 colher de sopa de bicarbonato de sódio<br>1 kg de farinha de trigo<br><br>Modo de preparo:<br>Misture o mel, o açúcar e a manteiga e leve ao fogo até misturar bem, não deixe ferver, desligue o fogo, coloque em uma bacia, acrescente os temperos e os outros ingredientes, a massa vai ficar firme, mas não dura.<br>Pode até grudar um pouco nas mãos, reparte em dois,coloque em saquinhos de plástico e leve para gelar.<br>Use um rolo para abrir, estique a massa entre dois plastico, não deixe a massa muito fina, mais ou menos 0,5 cm.<br>Corte no formato desejado, pode ser usado cortadores.<br>Leve para assar em forno quente por 10 minutos, deixe esfriar e decore como quiser.",
+        description: "Uma combinação irresistível de doçura e crocância! Imagine uma bolacha dourada e delicadamente crocante, perfumada com o aroma reconfortante do mel puro.<br><br>Ingredientes:<br>400 g de mel<br>250 g de açúcar<br>250 g de manteiga<br>3 ovos<br>1 colher de sopa de cravo moído (opcional)<br>1 colher de sopa de canela em pó <br>1 colher de sopa de noz moscada ralada (opcional)<br>1/2 colher de sopa de fermento em pó<br>1/2 colher de sopa de bicarbonato de sódio<br>1 kg de farinha de trigo<br><br>Modo de preparo:<br>Misture o mel, o açúcar e a manteiga e leve ao fogo até misturar bem, não deixe ferver, desligue o fogo, coloque em uma bacia, acrescente os temperos e os outros ingredientes, a massa vai ficar firme, mas não dura.<br>Pode até grudar um pouco nas mãos, reparte em dois,coloque em saquinhos de plástico e leve para gelar.<br>Use um rolo para abrir, estique a massa entre dois plastico, não deixe a massa muito fina, mais ou menos 0,5 cm.<br>Corte no formato desejado, pode ser usado cortadores.<br>Leve para assar em forno quente por 10 minutos, deixe esfriar e decore como quiser.",
         cuisine: "brasileira",
         type_of: 1,
         image: "https://images.pexels.com/photos/5618150/pexels-photo-5618150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        ingredients: ["Mel", "Manteiga", "Ovo", "Cravo", "Canela em Pó", "Noz Moscada", "Fermento", "Farinha", "Bicarbonato de Sódio"],
+        ingredients: ["Mel", "Manteiga", "Ovo",  "Canela em Pó", "Fermento", "Farinha", "Bicarbonato de Sódio"],
         difficulty: "difícil",
         restriction: ["gluten", "vegano", "laticinio"],
+        premium: false
     },
     {
         name: "Mingau de cacau",
-        description: "Uma opção saudável e super nutritiva para o café da manhã, sem amido de milho e sem açúcar.<br><br>Ingredientes:<br>2 colheres (sopa) farelo de aveia<br>150 ml de leite<br>1 colher (sopa) de cacau em pó<br>Adoçante líquido a gosto, opcional<br><br>Modo de preparo:<br>Dentro de um recipiente, coloque o farelo de aveia, o cacau e 50 ml de leite. Misture bem<br>Deixe descansar por aproximadamente 5 minutos<br>Em seguida, coloque o restante do leite dentro de uma panela, junte a aveia hidratada e misture bem<br>Leve ao fogo baixo e mexa até engrossar. O ponto deve ser igual brigadeiro, o mingau tem que começar a desgrudar da panela<br>Adoce se achar necessário<br>Está pronto! Sirva quente ou gelado.",
+        description: "UUm mingau cremoso e reconfortante, preparado com leite, aveia em flocos, cacau em pó e uma pitada de açúcar ou adoçante, se desejado. Cozido até ficar espesso e cremoso, é uma opção deliciosa para começar o dia ou como uma sobremesa reconfortante.<br><br>Ingredientes:<br>2 colheres (sopa) farelo de aveia<br>150 ml de leite<br>1 colher (sopa) de cacau em pó<br>Adoçante líquido a gosto, opcional<br><br>Modo de preparo:<br>Dentro de um recipiente, coloque o farelo de aveia, o cacau e 50 ml de leite. Misture bem<br>Deixe descansar por aproximadamente 5 minutos<br>Em seguida, coloque o restante do leite dentro de uma panela, junte a aveia hidratada e misture bem<br>Leve ao fogo baixo e mexa até engrossar. O ponto deve ser igual brigadeiro, o mingau tem que começar a desgrudar da panela<br>Adoce se achar necessário<br>Está pronto! Sirva quente ou gelado.",
         cuisine: "brasileira",
         type_of: 1,
         image: "https://images.pexels.com/photos/19745775/pexels-photo-19745775/free-photo-of-placa-prato-saudavel-cafe-da-manha.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Aveia", "Leite", "Cacau em Pó"],
         difficulty: "fácil",
         restriction: ["gluten", "laticinio", "vegano"],
+        premium: false
     },
     {
         name: "Chá gelado com limão",
@@ -151,56 +183,62 @@ db.recipes.insertMany([
         ingredients: ["Chá", "Limão"],
         difficulty: "fácil",
         restriction: [],
+        premium: false
     },
     {
         name: "Iogurte natural",
         description: "O iogurte natural caseiro é uma opção saudável e deliciosa que oferece uma maneira simples e econômica de desfrutar deste alimento probiótico. Com sua textura cremosa e sabor suave, o iogurte caseiro pode ser apreciado puro, com frutas ou utilizado em diversas receitas.<br><br>Ingredientes:<br>1 litro de leite<br>1 iogurte natural<br><br>Modo de preparo:<br>Ferva o leite, espere amornar, mas não deixe ficar frio.<br>Misture o iogurte junto ao leite morno, e coloque num recipiente médio ou grande (o equivalente a 1 litro) e deixe descansar de 12 a 24 horas.<br>De vez em quando mexa para ver como ficou a consistência.<br>Depois coloque na geladeira e sirva acompanhado com granola, quick de morango, ou algo de sua preferência. ",
         cuisine: "brasileira",
         type_of: 1,
-        image: "https://images.pexels.com/photos/4736077/pexels-photo-4736077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        image: "https://images.pexels.com/photos/8805108/pexels-photo-8805108.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Leite", "Iogurte"],
         difficulty: "fácil",
         restriction: ["laticinio", "vegano"],
+        premium: false
     },
     {
         name: "Geleia de morango",
-        description: "Uma explosão de sabor doce e frutado em cada colherada! Um pote reluzente, repleto de morangos vermelhos e suculentos.<br><br>Ingredientes:<br>600 g de morango (2 caixinhas)<br>1 xícara (chá) de açúcar<br>1 colher (sobremesa) de suco de limão<br>5 cravos-da-índia (opcional)<br>1 colher (sobremesa) de amido de milho dissolvido em um pouquinho de água<br><br>Modo de preparo:<br>Colocar em uma panela o açúcar, depois os morangos com o suco de limão e os cravos-da-índia.<br>Levar ao fogo alto até ferver, depois fogo médio até o final, mexendo de vez em quando.<br>Cozinhar até que os morangos estejam molinhos, o que leva uns 15 minutos.<br>Passado esse tempo acrescente o amido de milho, mexa mais um pouco e desligue.",
+        description: "Uma geleia feita com morangos frescos e suculentos, cozidos lentamente com açúcar e suco de limão, até atingir uma consistência espessa e brilhante. Perfeita para espalhar generosamente sobre torradas, bolos ou até mesmo para usar como cobertura de sobremesas.<br><br>Ingredientes:<br>600 g de morango (2 caixinhas)<br>1 xícara (chá) de açúcar<br>1 colher (sobremesa) de suco de limão<br>5 cravos-da-índia (opcional)<br>1 colher (sobremesa) de amido de milho dissolvido em um pouquinho de água<br><br>Modo de preparo:<br>Colocar em uma panela o açúcar, depois os morangos com o suco de limão e os cravos-da-índia.<br>Levar ao fogo alto até ferver, depois fogo médio até o final, mexendo de vez em quando.<br>Cozinhar até que os morangos estejam molinhos, o que leva uns 15 minutos.<br>Passado esse tempo acrescente o amido de milho, mexa mais um pouco e desligue.",
         cuisine: "brasileira",
         type_of: 1,
-        image: "https://images.pexels.com/photos/96580/pexels-photo-96580.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        image: "https://images.pexels.com/photos/10553647/pexels-photo-10553647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Morango", "Limão", "Amido de Milho"],
         difficulty: "fácil",
         restriction: ["gluten"],
+        premium: false
     },
     {
         name: "Sequilhos de coco",
-        description: "Biscoitinhos macios por dentro, levemente crocantes por fora, com o aroma irresistível e o sabor irresistível do coco fresco.<br><br>Ingredientes:<br>1 pacote de 500 g de amido de milho<br>200 g de manteiga em temperatura ambiente<br>1 1/2 xícaras de açúcar refinado<br>2 gemas<br>1/2 coco ralado<br>1 pitada de sal<br><br>Modo de preparo:<br>Em uma bacia grande coloque a maisena.<br>Acrescente a manteiga, o açúcar, as gemas, o coco ralado e o sal, amasse tudo com as mãos até que se unam e possam formar biscoitinhos, se não for possível formar os biscoitos, acrescente um pouco mais de maisena.<br>Pré-aqueça o forno em temperatura média e coloque os biscoitinhos em uma forma untada com manteiga.<br>Asse-os até que a parte de baixo do biscoito esteja dourada, mais ou menos 20 a 30 minutos, dependendo do forno.<br>Sirva com chá ou café, ficam super crocantes.",
+        description: "Uma deliciosa opção de biscoito feito com uma mistura de coco ralado, açúcar, manteiga e farinha de trigo, assados até ficarem levemente dourados e crocantes por fora, mas macios e derretendo na boca por dentro. Perfeitos para acompanhar um café ou chá, ou simplesmente para saborear como um lanche.<br><br>Ingredientes:<br>1 pacote de 500 g de amido de milho<br>200 g de manteiga em temperatura ambiente<br>1 1/2 xícaras de açúcar refinado<br>2 gemas<br>1/2 coco ralado<br>1 pitada de sal<br><br>Modo de preparo:<br>Em uma bacia grande coloque a maisena.<br>Acrescente a manteiga, o açúcar, as gemas, o coco ralado e o sal, amasse tudo com as mãos até que se unam e possam formar biscoitinhos, se não for possível formar os biscoitos, acrescente um pouco mais de maisena.<br>Pré-aqueça o forno em temperatura média e coloque os biscoitinhos em uma forma untada com manteiga.<br>Asse-os até que a parte de baixo do biscoito esteja dourada, mais ou menos 20 a 30 minutos, dependendo do forno.<br>Sirva com chá ou café, ficam super crocantes.",
         cuisine: "brasileira",
         type_of: 1,
         image: "https://images.pexels.com/photos/6970517/pexels-photo-6970517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Manteiga", "Ovo", "Coco", "Amido de Milho"],
         difficulty: "fácil",
         restriction: ["gluten", "laticinio", "vegano"],
+        premium: false
     },
     {
         name: "Bauru",
-        description: "Uma combinação simplesmente irresistível de sabores! Ótimo para um café da manhã delicioso.<br><br>Ingredientes:<br>2 pacotes de pão de forma<br>4 colheres de maionese<br>1 lata de molho de tomate pronto<br>400 g de presunto<br>450 g de mussarela<br>Rodelas de tomate<br>Orégano<br><br>Modo de preparo:<br>Unte a forma com a maionese.<br>Coloque uma camada do pão de forma.<br>Em cima do pão coloque um pouco de molho de tomate (cubra todo o pão, mais cuidado para não colocar molho demais e não ficar enjoativo e mole).<br>Faça uma camada de presunto e outra de mussarela e coloque rodelas de tomate e o orégano por cima.<br>Coloque mais uma camada de pão de forma com o molho de tomate.<br>E mais uma camada de presunto, mussarela, tomate e orégano.<br>E por último, coloque mais uma camada de mussarela e orégano.<br>Leve ao formo por uns 15 minutos para que a mussarela derreta, cuidado pra não queimar o fundo.",
+        description: "Uma sanduíche deliciosamente simples e reconfortante, preparado com fatias de pão francês ou pão de forma, recheado com presunto e queijo derretido com uma pitada de orégano. Tudo é aquecido até o queijo derreter, resultando em um sanduíche quente e saboroso.<br><br>Ingredientes:<br>2 pacotes de pão de forma<br>400 g de presunto<br>450 g de mussarela<br>Orégano<br><br>Modo de preparo:<br>Coloque uma camada do pão em uma forma.<br>Faça uma camada de presunto e outra de mussarela e  orégano por cima.<br>Coloque mais uma camada de pão <br>Em seguida, mais uma camada de presunto, mussarela e orégano.<br>Leve ao formo por uns 15 minutos para que a mussarela derreta, cuidado pra não queimar o fundo.",
         cuisine: "brasileira",
         type_of: 1,
         image: "https://images.pexels.com/photos/19471395/pexels-photo-19471395/free-photo-of-sanduiche-cafe-da-manha-ovo-fruta.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        ingredients: ["Pão", "Maionese", "Presunto", "Molho de Tomate", "Tomate", "Queijo"],
+        ingredients: ["Pão", "Presunto", "Queijo"],
         difficulty: "médio",
         restriction: ["gluten", "laticinio", "vegetariano", "vegano"],
+        premium: false
     },
     {
         name: "Café com leite",
-        description: "Essa receita é para você que gosta de um café com leite quentinho para sua manhã! Super simples e delicioso.<br><br>Ingredientes:<br>1 colher de sopa de café solúvel ou 1/4 de xícara de chá de café coado<br>1 xícara de chá de leite<br>1 colher de açúcar (opcional)<br><br>Modo de preparo:<br>Em uma panela adicione o leite, o café e o açúcar, misture bem.<br>Leve ao fogo baixo, mexendo sempre até ferver.<br>Cozinhe por mais 1 minuto e retire do fogo.<br>Sirva quente.",
+        description: "Essa receita é para você que gosta de um café com leite quentinho para sua manhã!. Uma combinação simples e reconfortante de café expresso forte e leite vaporizado, servido em uma xícara quente. Perfeito para quem busca uma bebida suave e encorpada para começar o dia.<br><br>Ingredientes:<br>1 colher de sopa de café solúvel ou 1/4 de xícara de chá de café coado<br>1 xícara de chá de leite<br>1 colher de açúcar (opcional)<br><br>Modo de preparo:<br>Em uma panela adicione o leite, o café e o açúcar, misture bem.<br>Leve ao fogo baixo, mexendo sempre até ferver.<br>Cozinhe por mais 1 minuto e retire do fogo.<br>Sirva quente.",
         cuisine: "brasileira",
         type_of: 1,
         image: "https://images.pexels.com/photos/3278327/pexels-photo-3278327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Café em Pó", "Leite"],
         difficulty: "fácil",
         restriction: ["laticinio", "vegano"],
+        premium: false
     },
     {
         name: "Panqueca americana",
@@ -211,16 +249,18 @@ db.recipes.insertMany([
         ingredients: ["Farinha", "Fermento", "Ovo", "Leite", "Manteiga", "Óleo"],
         difficulty: "médio",
         restriction: ["gluten", "laticinio", "vegano"],
+        premium: false
     },
     {
         name: "Crepioca",
-        description: "Uma opção deliciosa e saudável para suas refeições! Imagine uma panqueca macia e leve, feita com uma mistura especial de tapioca e ovos.<br><br>Ingredientes:<br>1 ovo<br>1 colher de tapioca<br>1 colher de requeijão<br>1 colher de água<br>1 pitada sal<br><br>Modo de preparo:<br>Bata todos os ingredientes em um liquidificador até obter uma consistência cremosa.<br>Despeje uma concha da massa numa frigideira levemente untada com margarina, tampe e deixe dourar. Recheie a gosto e dobre ao meio como um crepe.",
+        description: "Uma crepioca básica feita com uma mistura de goma de tapioca e ovos, grelhada em uma frigideira até ficar dourada e crocante. Pode ser servida simples ou com um recheio de sua escolha, como queijo, presunto, tomate e ervas frescas.<br><br>Ingredientes:<br>1 ovo<br>1 colher de tapioca<br>1 colher de requeijão<br>1 colher de água<br>1 pitada sal<br><br>Modo de preparo:<br>Bata todos os ingredientes em um liquidificador até obter uma consistência cremosa.<br>Despeje uma concha da massa numa frigideira levemente untada com margarina, tampe e deixe dourar. Recheie a gosto e dobre ao meio como um crepe.",
         cuisine: "brasileira",
         type_of: 1,
         image: "https://images.pexels.com/photos/6811030/pexels-photo-6811030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Ovo", "Tapioca", "Requeijão"],
         difficulty: "fácil",
         restriction: ["laticinio", "vegano"],
+        premium: false
     },
     {
         name: "Brusqueta",
@@ -231,6 +271,7 @@ db.recipes.insertMany([
         ingredients: ["Pão", "Tomate", "Queijo", "Óleo", "Alho"],
         difficulty: "médio",
         restriction: ["gluten", "laticinio"],
+        premium: false
     },
     {
         name: "Bolo de caneca",
@@ -241,15 +282,336 @@ db.recipes.insertMany([
         ingredients: ["Ovo", "Chocolate em Pó", "Farinha", "Óleo", "Fermento", "Leite", "Manteiga"],
         difficulty: "fácil",
         restriction: ["gluten", "laticinio", "vegano"],
+        premium: false
     },
     {
         name: "Muffin",
-        description: "Uma delícia macia e reconfortante que vai adoçar o seu dia! Imagine uma base fofinha e levemente úmida, repleta de sabores incríveis!<br><br>Ingredientes:<br>1/2 xícara de chá de açúcar<br>1/2 xícara de chá de chocolate em pó<br>1 xícara de farinha de trigo<br>2 ovos<br>4 colheres de sopa manteiga<br>150 ml de leite<br>1 colher de sopa de fermento em pó<br>Opcional: gotas de chocolate<br><br>Modo de preparo:<br>Junte em uma tigela o chocolate e a farinha (peneire-os) e separe.<br>Bata por uns 3 minutos na batedeira as gemas, o açúcar e a manteiga.<br>Adicione à batedeira a farinha com o chocolate e o leite alternando-os (coloque um pouco da farinha depois um pouco do leite e assim por diante).<br>Pare de bater e adicione o fermento em pó e as gotas de chocolate, misture delicadamente.<br>Bata as claras em neve e quando estiverem em ponto firme adicione a massa mexendo delicadamente a mão.<br>Unte as forminhas com manteiga e farinha.<br>Coloque a massa nas forminhas e leve ao forno pré-aquecido (180º graus) por mais ou menos 25 minutos.<br>Espete um palito para ver se estão sequinhos.<br>Espere esfriar um pouco e já pode servir.",
+        description: "Uma tentação para os amantes de chocolate! Massa úmida e indulgente carregada com pedaços generosos de chocolate meio amargo derretido, criando uma experiência incrível para satisfazer qualquer desejo por chocolate.<br><br>Ingredientes:<br>1/2 xícara de chá de açúcar<br>1/2 xícara de chá de chocolate em pó<br>1 xícara de farinha de trigo<br>2 ovos<br>4 colheres de sopa manteiga<br>150 ml de leite<br>1 colher de sopa de fermento em pó<br>Opcional: gotas de chocolate<br><br>Modo de preparo:<br>Junte em uma tigela o chocolate e a farinha (peneire-os) e separe.<br>Bata por uns 3 minutos na batedeira as gemas, o açúcar e a manteiga.<br>Adicione à batedeira a farinha com o chocolate e o leite alternando-os (coloque um pouco da farinha depois um pouco do leite e assim por diante).<br>Pare de bater e adicione o fermento em pó e as gotas de chocolate, misture delicadamente.<br>Bata as claras em neve e quando estiverem em ponto firme adicione a massa mexendo delicadamente a mão.<br>Unte as forminhas com manteiga e farinha.<br>Coloque a massa nas forminhas e leve ao forno pré-aquecido (180º graus) por mais ou menos 25 minutos.<br>Espete um palito para ver se estão sequinhos.<br>Espere esfriar um pouco e já pode servir.",
         cuisine: "inglesa",
         type_of: 1,
         image: "https://images.pexels.com/photos/4792398/pexels-photo-4792398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         ingredients: ["Chocolate em Pó", "Farinha", "Ovo", "Manteiga", "Leite", "Fermento"],
         difficulty: "médio",
         restriction: ["gluten", "laticinio", "vegano"],
+        premium: false
     },
+    {
+        name: "Panquecas de carne",
+        description: "Uma massa fina e macia de panqueca, recheada com uma mistura suculenta de carne moída, temperos e molho de tomate. A carne moída é refogada com alho e ervas aromáticas, como salsinha e orégano, criando um recheio saboroso e bem temperado.<br><br>Ingredientes:<br>Massa:<br>1 ovo<br>2 xícaras de leite<br>1 tablete de caldo de carne (opcional)<br>2 xícaras bem cheias de farinha de trigo<br>2 colheres (sopa) de óleo<br>2 colheres (sopa) de queijo ralado (opcional)<br><br>Recheio:<br>1/2 kg de carne moída<br>2 colheres (sopa) de óleo<br>2 dentes de alho<br>2 caldos de carne (opcional)<br>2 tomates sem pele picados<br>1 pimenta vermelha inteira<br>Orégano salsinha a gosto<br>Molho de tomate<br><br>Modo de preparo:<br>Refogue a carne moída no azeite com o alho.<br>Acrescente os tomates, o caldo de carne, a pimenta, o orégano, deixe ficar bem sequinha, desligue e coloque a salsinha.<br>Reserve.<br>Bata no liquidificador os ingredientes da massa, frite em frigideira anti-aderente, não é preciso colocar óleo na frigideira, na massa já tem azeite.<br>Vá recheando cada panqueca e colocando em uma travessa.<br>Coloque um molho de tomate bem caprichado, polvilhe bastante queijo ralado e sirva a seguir.",
+        cuisine: "brasileira",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/8448317/pexels-photo-8448317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Ovo", "Leite", "Farinha", "Óleo", "Carne Moída", "Alho", "Tomate", "Molho de Tomate"],
+        difficulty: "médio",
+        restriction: ["gluten", "laticinio", "vegetariano", "vegano"],
+        premium: false
+    },
+    {
+        name: "Strogonoff de frango",
+        description: "Um prato cremoso e saboroso preparado com pedaços suculentos de frango refogados em uma mistura cremosa de creme de leite, molho de tomate, cebola e alho. O frango é cortado em tiras finas e refogado até ficar dourado e cozido por igual.<br><br>Ingredientes:<br>3 peitos de frango cortados em cubos<br>1 dente de alho picado<br>Sal a gosto<br>Pimenta-do-reino a gosto<br>1 cebola picada<br>1/2 copo de molho de tomate<br>1/3 copo de mostarda (opcional)<br>1 copo de creme de leite<br>Batata palha (opcional)<br><br>Modo de preparo:<br>Em uma panela, misture o frango, o alho, o sal e a pimenta.<br>Em uma frigideira grande, doure a cebola.<br>Junte o frango temperado até que esteja dourado.<br>Adicione molho de tomate.<br>Incorpore o creme de leite e retire do fogo antes de ferver.<br>Sirva com arroz branco e batata palha.",
+        cuisine: "brasileira",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/1998918/pexels-photo-1998918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Carne de Frango", "Alho", "Cebola", "Molho de Tomate", "Creme de Leite"],
+        difficulty: "médio",
+        restriction: ["laticinio", "vegetariano", "vegano"],
+        premium: false
+    },
+    {
+        name: "Lasanha",
+        description: "A receita de lasanha de carne moída é um prato clássico, muito amado e muito fácil de preparar. Também conhecida como lasanha à bolonhesa, pela sua origem em Bolonha, na Itália, essa receita conquistou o mundo! Este prato é uma verdadeira celebração de sabores, com camadas intercaladas de massa, molho de carne moída e queijo derretido, resultando em uma combinação deliciosa e irresistível!<br><br>Ingredientes:<br>500 g de massa de lasanha<br>500 g de carne moída<br>2 caixas de creme de leite<br>3 colheres de manteiga<br>3 colheres de farinha de trigo<br>500 g de presunto<br>500 g de mussarela<br>Sal a gosto<br>2 copos de leite<br>1 cebola ralada<br>3 colheres de óleo<br>1 caixa de molho de tomate<br>3 dentes de alho amassados<br>1 pacote de queijo ralado<br><br>Modo de preparo:<br>Lasanha:<br>Cozinhe a massa segundo as orientações do fabricante, despeje em um refratário com água gelada para não grudar e reserve.<br><br>Molho à bolonhesa<br>Refogue o alho, a cebola, a carne moída, o molho de tomate, deixe cozinhar por 3 minutos e reserve.<br><br>Molho branco<br>Derreta a manteiga, coloque as 3 colheres de farinha de trigo e mexa.<br>Despeje o leite aos poucos e continue mexendo.<br>Por último, coloque o creme de leite, mexa por 1 minuto e desligue o fogo.<br><br>Montagem<br>Despeje uma parte do molho à bolonhesa em um refratário, a metade da massa, a metade do presunto, a metade da mussarela, todo o molho branco e o restante da massa.<br>Repita as camadas até a borda do recipiente.<br>Finalize com o queijo ralado e leve ao forno alto (220° C), preaquecido, por cerca de 20 minutos. ",
+        cuisine: "italiana",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/5949921/pexels-photo-5949921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Massa de Lasanha", "Carne Moída", "Creme de Leite", "Manteiga", "Farinha", "Presunto", "Queijo", "Leite", "Cebola", "Alho", "Molho de Tomate", "Óleo"],
+        difficulty: "difícil",
+        restriction: ["gluten", "laticinio", "vegetariano", "vegano"],
+        premium: false
+    },
+    {
+        name: "Macarrão bolonhesa",
+        description: "Uma deliciosa combinação de macarrão, geralmente spaghetti, tagliatelle ou penne, servido com um molho rico à bolonhesa. O molho à bolonhesa é feito com carne moída refogada lentamente em uma mistura de cebola, alho, tomate e cenoura, temperado com ervas como manjericão, orégano e tomilho. O molho é então cozido em fogo baixo por horas para desenvolver camadas de sabor.<br><br>Ingredientes:<br>1 Cebola<br>1 colher de sopa de óleo<br>5 azeitonas verdes picadas (opcional)<br>2 latas de molho de tomate pronto<br>2 Cubos de Caldo de carne (opcional)<br>1 cenoura (opcional)<br>2 tomates picados<br>500g de macarrão<br>500g de Carne Moída<br><br>Modo de preparo:<br>Pique a cebola, refogue por alguns minutos em uma panela com óleo quente até dourar a cebola, mexendo para não queimar.<br>Misture a carne moída, deixe cozinhar por alguns minutos.<br>Adicione o caldo, o molho, os tomates picados, a cenoura cortada ao meio e mexa bem, deixe cozinhar por aproximadamente 40 minutos em fogo baixo com a panela semi tampada. Descarte a cenoura depois que o molho estiver pronto.<br>Prepare o macarrão, misture o molho ao macarrão e sirva.<br>Acompanhamento Sugerido: Queijo Ralado",
+        cuisine: "italiana",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/6287492/pexels-photo-6287492.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Cebola", "Óleo", "Molho de Tomate", "Tomate", "Macarrão", "Carne Moída"],
+        difficulty: "médio",
+        restriction: ["gluten", "vegetariano", "vegano"],
+        premium: false
+    },
+    {
+        name: "Frango assado",
+        description: "Se você está procurando uma receita que seja fácil de preparar e ao mesmo tempo deixe sua casa com aquele aroma irresistível de comida deliciosa, o frango assado inteiro é a escolha ideal! Com poucos ingredientes e um passo a passo simples, você vai surpreender a todos com um prato suculento e cheio de sabor.<br><br>Ingredientes:<br>1 frango inteiro<br>Manteiga<br>Sal<br>1 cebola grande descascada inteira<br>Alecrim e manjericão ou ervas finas desidratadas<br>Limão<br><br>Modo de preparo:<br>Pegue o frango, retire os miúdos.<br>Lave-o por dentro e por fora com água e limão, escorra.<br>Secar com um guardanapo de pano dentro e fora, em seguida passar sal por dentro e por fora, fazer o mesmo com a margarina ou manteiga.<br>Colocar em uma assadeira, adicione a cebola inteira e os galhos de alecrim e manjericão no interior do frango Seara com um cubinho de manteiga.<br>Levar para assar em forno médio até começar a dourar mais ou menos 40 minutos, aumentar o forno para o máximo para dourar e ficar crocante.",
+        cuisine: "brasileira",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/5956831/pexels-photo-5956831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Carne de Frango", "Manteiga", "Cebola", "Limão"],
+        difficulty: "fácil",
+        restriction: ["laticinio", "vegetariano", "vegano"],
+        premium: false
+    },
+    {
+        name: "Nhoque",
+        description: "O nhoque, uma iguaria de origem italiana, é reconhecido por sua delicadeza e textura macia. Prepare este prato clássico em sua cozinha para desfrutar de uma experiência gastronômica única, garantindo uma refeição que certamente deixará todos com água na boca.<br><br>Ingredientes:<br>Massa:<br>6 batatas médias<br>1 xícara de farinha de trigo<br>Sal a gosto<br><br>Molho:<br>1 lata de molho de tomate<br>1/2 cebola<br>1 colher (sopa) de óleo<br>2 tabletes de caldo de carne (opcional)<br>1/2 kg de carne moída<br>1 pacote de queijo ralado (opcional)<br><br>Modo de preparo:<br>Cozinhe as batatas, em água, até que estejam macias.<br>Descasque-as e passe pelo espremedor ainda quente.<br>Vá adicionando a farinha aos poucos e o sal, amasse bem.<br>Coloque a massa sobre uma mesa enfarinhada e faça rolinhos.<br>Corte cada rolinho em pedaços de mais ou menos 2 cm.<br>Leve ao fogo, em uma panela com bastante água temperada com sal.<br>Quando a água levantar fervura, vá colocando os nhoques, até eles começarem a subir.<br>Coloque água fria em uma bacia com um escorredor dentro, retire os nhoques já cozidos e coloque-os no escorredor para dar choque térmico.<br>Repita o processo até toda massa estar cozida.<br>Escorra bem e coloque o nhoque em um refratário, reserve.<br><br>Molho: <br>Pique a cebola, bem miudinha e, em uma panela, frite com óleo.<br>Acrescente a carne e os tabletes de caldo de carne.<br>Mexa bem, quando a carne já estiver cozida, acrescente o molho e deixe cozinhar por mais 4 min.<br>Despeje-o sobre o nhoque, salpique queijo em cima e leve ao forno para gratinar, sirva quente e bom apetite!",
+        cuisine: "italiana",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/6659622/pexels-photo-6659622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Batata", "Farinha", "Molho de Tomate", "Cebola", "Óleo", "Carne Moída"],
+        difficulty: "difícil",
+        restriction: ["gluten", "vegetariano", "vegano"],
+        premium: false
+    },
+    {
+        name: "Frango à milanesa",
+        description: "O frango à milanesa é um prato clássico e saboroso. É feito com pedaços de frango empanados em uma mistura de farinha de rosca e temperos, depois fritos até ficarem dourados e crocantes por fora e macios por dentro. Uma opção simples e deliciosa para qualquer ocasião!<br><br>Ingredientes:<br>1 kg de filés de peito de frango<br>Tempero a gosto (sal, pimenta, limão, etc)<br>3 ovos batidos<br>Farinha de rosca (opcional)<br>Farinha de trigo<br><br>Modo de preparo:<br>Tempere os filés de frango.<br>Em outro recipiente (prato) bata os ovos.<br>Em outro prato coloque a farinha de rosca e  em um terceiro prato, o trigo.<br>Em seguida, pegue os filés já temperados e passe-os na farinha de trigo, nos ovos batidos e, por último, passe na farinha de rosca.<br>Frite os filés mergulhando em óleo, em fogo médio até que fiquem dourados.<br>Depois de fritos, coloque-os em papel toalha para absorver a gordura em excesso.",
+        cuisine: "brasileira",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/14686450/pexels-photo-14686450.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Carne de Frango", "Ovo", "Farinha"],
+        difficulty: "médio",
+        restriction: ["gluten", "vegano", "vegetariano"],
+        premium: false
+    },
+    {
+        name: "Purê de batata com bacon",
+        description: "Uma mistura deliciosa de sabores e texturas, este purê de batata com bacon é uma opção que você não pode deixar de experimentar. Feito com batatas frescas e manteiga, o purê é cremoso e suave. O bacon é crocante e tem um sabor defumado, que combina perfeitamente com a suavidade do purê. <br><br>Ingredientes:<br>1 kg de batata<br>1/2 xícara de leite<br>2 colheres (sopa) de manteiga<br>Sal a gosto<br>1 dente de alho espremido<br>350 g de bacon<br><br>Modo de preparo:<br>Cozinhe as batatas até ficarem bem moles, e frite bem o bacon.<br>Descasque-as ainda quentes e esprema as batatas no espremedor.<br>Despeje as batatas em um recipiente e acrescente a manteiga, o sal e o alho, e mexa até que a manteiga derreta por completo.<br>Acrescente o leite aos poucos e continue mexendo.<br>O purê está pronto! Por final, adicione o bacon já frito e misture com o purê.",
+        cuisine: "brasileira",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/4202392/pexels-photo-4202392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Batata", "Leite", "Alho", "Bacon", "Manteiga"],
+        difficulty: "fácil",
+        restriction: ["laticinio", "vegetariano", "vegano"],
+        premium: false
+    },
+    {
+        name: "Feijoada",
+        description: "A feijoada é um cozido de feijão preto com uma variedade de carnes defumadas e/ou salgadas, como linguiça, paio, carne seca, costela de porco, orelha, pé e rabo de porco. O feijão é cozido lentamente até ficar cremoso e saboroso, absorvendo os sabores das carnes e dos temperos.<br><br>Ingredientes:<br>1 kg de feijão preto<br>1/2 kg de carne seca<br>1/2 kg de costela de lombo de suíno<br>2 pés de suínos <br>2 paios<br>1/2 kg de linguiça cortada em pedaços<br>200 g de toucinho defumado cortado em pedaços<br>2 cebolas médias picadas<br>2 dentes de alho picados<br>1/4 xícara (chá) de óleo<br>1 folha de louro (opcional)<br>Sal<br><br>Modo de preparo:<br>Escolha o feijão e deixe de molho por 12 horas.<br>Lave bem as carnes, corte em pedaços e deixe de molho em água por 12 horas, trocando a água pelo menos duas vezes.<br>Coloque o feijão para cozinhar em bastante água com as folhas de louro.<br>Em uma panela à parte, cozinhe por meia hora as carnes, escorra a água e reserve.<br>Quando o feijão estiver começando a amolecer, coloque as carnes, a linguiça e o paio e deixe ferver em fogo brando até estar tudo bem cozido (leva de 2 a 3 horas).<br>Esquente o óleo e refogue os temperos.<br>Coloque uma concha do feijão, amasse bem e deixe ferver despeje na feijoada e deixe ferver por mais 30 minutos.<br>Sirva bem quente.",
+        cuisine: "brasileira",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/19870684/pexels-photo-19870684/free-photo-of-refeicao-comida-sopa-fresco.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Feijão", "Carne Suína", "Cebola", "Alho", "Óleo"],
+        difficulty: "difícil",
+        restriction: ["vegetariano", "vegano"],
+        premium: false
+    },
+    {
+        name: "Polenta",
+        description: "Uma preparação cremosa feita a partir de fubá (farinha de milho) cozido lentamente em água, temperado com sal e manteiga para dar sabor e uma textura cremosa. A polenta é mexida constantemente durante o cozimento para evitar que grude no fundo da panela e para garantir uma consistência macia e homogênea.<br><br>Ingredientes:<br>2 litros de água<br>400 g de fubá<br>2 colheres (sopa) de manteiga<br>1 colher (sopa) de sal<br>Queijo (opcional)<br><br>Modo de preparo:<br>Em uma panela, leve a água ao fogo e acrescente o sal e a manteiga.<br>Quando iniciar a fervura, acrescente o fubá e mexa sem parar para não empelotar.<br>Deixe a polenta cozinhar por 30 minutos em fogo baixo.<br>Despeje a polenta em um refratário, salpique com parmesão e cubra com o molho de sua preferência.",
+        cuisine: "italiana",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/17391580/pexels-photo-17391580/free-photo-of-comida-alimento-refeicao-restaurante.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",//
+        ingredients: ["Fubá", "Manteiga"],
+        difficulty: "médio",
+        restriction: ["laticinio", "vegano"],
+        premium: false
+    },
+    {
+        name: "Carne de panela",
+        description: "Um prato clássico preparado com pedaços suculentos de carne bovina cozidos lentamente. A carne é cortada em cubos e refogada com cebola, alho, tomate e uma variedade de temperos, como louro, cominho e pimenta-do-reino, criando um sabor delicioso.<br><br>Ingredientes:<br>1 kg de carne (acém, patinho ou lombo de porco)<br>2 cebolas cortadas em rodelas<br>2 Tomates<br> 1/2 alho moído<br>Tempero de sua preferência<br>Batatas (opcional)<br><br>Modo de preparo:<br>Forre o fundo de uma panela de pressão com metade das cebolas.<br>Adicione o tempero por cima das cebolas, adicione a carne, o tomate e o  alho. Tempere mais um pouco e cubra com o restante das cebolas.<br>Feche a panela de pressão, sem adicionar água, e deixe cozinhar por 25 minutos.<br>Se preferir, adicione batatas em rodelas e deixe cozinhar por mais 10 minutos.",
+        cuisine: "brasileira",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/18852564/pexels-photo-18852564/free-photo-of-legumes-vegetais-jantar-janta.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Carne Bovina", "Cebola", "Alho", "Tomate"],
+        difficulty: "fácil",
+        restriction: ["vegetariano", "vegano"],
+        premium: false
+    },
+    {
+        name: "Vaca atolada",
+        description: "Uma deliciosa combinação de mandioca cozida até ficar macia e carne bovina moída, lentamente cozida em um molho rico e aromático. A carne é temperada com alho, cebola, pimenta e ervas frescas, como cheiro-verde, dando um sabor característico ao prato.<br><br>Ingredientes:<br>1 kg de mandioca descascada e picada<br>4 tomates<br>1/2 de cebola picada<br>Cheiro-verde (a gosto)<br>1 kg e 1/2 de carne bovina moída cozida<br>Pimenta a gosto<br>1 colher de sopa de colorau<br>Tempero a gosto<br><br>Modo de preparo:<br>Refogue a mandioca e deixe cozinhar.<br>Quando já estiver macia, acrescente o tomate picado e a cebola e deixe cozinhar mais um pouco.<br>Acrescente a carne moída, deixe apurar mais um pouco.<br>Cozinhe por aproximadamente 40 minutos.<br>Salpique o cheiro-verde e a pimenta de sua preferência.<br>Bom apetite!",
+        cuisine: "brasileira",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/2679501/pexels-photo-2679501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Mandioca", "Tomate", "Cebola", "Carne Moída"],
+        difficulty: "médio",
+        restriction: ["vegetariano", "vegano"],
+        premium: false
+    },
+    {
+        name: "Macarrão ao molho branco",
+        description: "Uma combinação perfeita de macarrão, coberta com um molho cremoso à base de leite, manteiga e queijo parmesão ralado. O molho é delicadamente temperado com cebola e uma pitada de pimenta-do-reino para realçar os sabores.<br><br>Ingredientes:<br>300 g de macarrão da sua preferência<br>2 colheres (sopa) de óleo<br>1 colher (sopa) de manteiga<br>1 lata de creme de leite<br>1/2 cebola pequena picada<br>1/2 litro de leite<br>Queijo ralado a gosto para decorar (opcional)<br>Pimenta-do-reino a gosto<br>Sal a gosto<br><br>Modo de preparo:<br>Para cozinhar o macarrão, coloque água para ferver na panela de pressão com as 2 colheres de óleo e 1 colher de sopa de sal.<br>Depois que começar a ferver a água coloque o macarrão.<br>Quando o macarrão estiver quase molinho, comece a fazer o molho branco.<br>Pegue uma outra panela e coloque a margarina, quando estiver derretido acrescente a cebola, o sal e a pimenta.<br>Fique por 1 minuto mexendo essa mistura para pegar gosto.<br>Coloque o leite e mexa, depois acrescente todo o creme de leite.<br>Continue mexendo sem parar, até que o molho fique numa consistência mais firme.<br>Escorra o macarrão.<br>Coloque em uma travessa.<br>Retire o molho da panela e coloque direto em cima do macarrão.<br>Polvilhe com queijo ralado por cima.",
+        cuisine: "brasileira",
+        type_of: 2,
+        image: "https://images.pexels.com/photos/19062759/pexels-photo-19062759/free-photo-of-placa-prato-mao-jantar.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Macarrão", "Óleo", "Manteiga", "Creme de Leite", "Cebola", "Leite"],
+        difficulty: "médio",
+        restriction: ["gluten", "laticinio", "vegano"],
+        premium: false
+    },
+    {
+        name: "Frango xadrez",
+        description: "O frango xadrez é uma deliciosa combinação de pedaços de frango macios, legumes frescos e crocantes, e um molho agridoce e levemente picante. Os ingredientes são cozidos rapidamente em uma wok ou frigideira, preservando a textura e os sabores vibrantes dos legumes.<br><br>Ingredientes:<br>5 filés de peito de frango<br>2 colheres (sopa) de shoyu (opcional)<br>2 colheres (sopa) de molho de tomate<br>2 pimentões (1 verde e 1 vermelho) cortar em cubos<br>2 cebolas cortadas em cubinhos<br>1 colher (sopa) de farinha de trigo<br>Sal e pimenta<br>3 colheres de sopa de óleo<br>Amendoim ou gergelim (opcional)<br><br>Modo de preparo:<br>Tempere o frango com sal e pimenta e refogue-o no óleo.<br>Adicione a cebola e os pimentões, cozinhe por uns 15 minutos.<br>Ponha o shoyu, o molho de tomate e a farinha de trigo dissolvida em 50 ml de água, mexa bem.<br>Cozinhe até engrossar o molho.<br>Corte o frango em quadradinhos e deixe de molho na água por 10 minutos.<br>Escorrer e temperar com sal, pimenta e alho.<br>Colocar num refratário fundo, acrescentar o shoyu, molho de tomate, pimentões e a cebola.<br>Tampar o recipiente e levar ao micro-ondas por 12 minutos em potência alta.<br>Abrir o refratário e acrescentar a farinha de trigo dissolvida em 1/2 copo de água.<br>Mexer e voltar ao forno por mais 3 minutos em potência alta. E pronto!",
+        cuisine: "chinesa",
+        type_of: 3,
+        image: "https://images.pexels.com/photos/18968670/pexels-photo-18968670/free-photo-of-comida-alimento-refeicao-placa.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Carne de Frango", "Molho de Tomate", "Pimentão", "Cebola", "Farinha", "Óleo"],
+        difficulty: "médio",
+        restriction: ["vegano", "vegetariano"],
+        premium: false
+    },
+    {
+        name: "Ratatouille",
+        description: "Uma deliciosa combinação de legumes frescos, incluindo berinjela, abobrinha, pimentão, tomate e cebola, cozidos lentamente em azeite de oliva até ficarem macios e muito bem temperados. O prato é aromatizado com ervas, como tomilho, alecrim e manjericão, que realçam os sabores naturais dos vegetais.<br><br>Ingredientes:<br>2 abobrinhas<br>2 berinjelas<br>2 cebolas<br>3 tomates<br>1 pimentão verde<br>1 pimentão amarelo<br>1 pimentão vermelho<br>Óleo a gosto<br>Alecrim a gosto<br>Manjericão a gosto<br>Alho a gosto<br>Sal a gosto<br>Louro a gosto<br>Molho de tomate<br><br>Modo de preparo:<br>Corte os vegetais em rodelas finas sem as sementes.<br>Cubra o fundo de uma forma com o molho de tomate.<br>Monte tudo intercalando com os vegetais.<br>Amasse o alho e espalhe por cima adicionando o sal e o alecrim a gosto.<br>Regue com um pouco de óleo e cubra com papel-manteiga ou alumínio.<br>Leve ao forno por 40 minutos a uma temperatura de 180° C a 200° C. E pronto!",
+        cuisine: "francesa",
+        type_of: 3,
+        image: "https://images.pexels.com/photos/7439978/pexels-photo-7439978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Abobrinha", "Berinjela", "Cebola", "Pimentão", "Óleo", "Tomate", "Alho", "Molho de Tomate"],
+        difficulty: "médio",
+        restriction: [],
+        premium: false
+    },
+    {
+        name: "Sopa de legumes",
+        description: "Uma sopa leve e saudável, preparada com uma variedade de legumes frescos, cozidos lentamente em um caldo saboroso até ficarem macios e cheios de sabor. Esta sopa é perfeita para aquecer em dias frios e proporcionar uma refeição nutritiva e reconfortante.<br><br>Ingredientes:<br>1 peito de frango<br>4 dentes de alho<br>1/2 abobrinha<br>2 cenouras<br>1/2 repolho<br>1 maço de couve<br>2 tomates<br>Cheiro verde<br>1 litro de água<br>1 caldo de galinha (opcional)<br>Óleo<br><br>Modo de preparo:<br>Refogue o alho no azeite ou óleo até dourar.<br>Coloque os cubinhos de frango, o caldo de galinha e refogue bem.<br>Acrescente a água e os demais ingredientes picados em pequenos pedacinhos, adicione sal e temperos a gosto, cozinhe na pressão por 5 minutos.<br>Se preferir bata a sopa no liquidificador depois de pronto e sirva como creme de legumes.",
+        cuisine: "brasileira",
+        type_of: 3,
+        image: "https://images.pexels.com/photos/1907244/pexels-photo-1907244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Carne de Frango", "Alho", "Abobrinha", "Cenoura", "Repolho", "Couve", "Tomate"],
+        difficulty: "fácil",
+        restriction: ["vegano", "vegetariano", "gluten"],
+        premium: false
+    },
+    {
+        name: "Pidê",
+        description: "Uma deliciosa massa de pão turca, alongada e em formato de barca, assada até ficar crocante por fora e macia por dentro. A massa é feita com farinha de trigo, água, fermento, sal e um toque de azeite de oliva, criando uma base leve e saborosa.<br><br>Ingredientes:<br>Recheio:<br>2 colheres sopa de óleo<br>250 g de carne moída<br>2 colheres sopa de cebola (picada)<br>2 colheres sopa de pimentão (picado)<br>1/2 tomate picado<br>1/2 colher chá de sal<br>1/8 colher chá de pimenta<br><br>Massa:<br>350 ml de água<br>1 colher chá de fermento<br>1 colher sopa de açúcar<br>3 xícaras chá de farinha de trigo<br>1 colher sopa de manteiga<br>1 colher chá de sal<br><br>Modo de preparo:<br>RECHEIO: Em uma panela coloque o azeite, a Carne Moída, e frite até perder a coloração rosada, e junte a Cebola (picada) ,o Pimentão picado, tomate , sal, pimenta calabresa e cozinhe por cerca de 3 minutos e leve para esfriar.<br><br>MASSA: Em uma tigela coloque a água morna, o fermento biológico, o açúcar, 1 xícara de farinha de trigo e misture muito bem e quando estiver bem homogêneo adicione mais 1 xícara de farinha de trigo de mais uma boa misturada e cubra com um pano e deixe crescer por 20 minutos para ativar o fermento.<br>Junte 1 colher de manteiga derretida, 1 colher  de sal e pode adicionar aos poucos mais 1 xícara de farinha de trigo e misture bem até ficar uma massa pesada! Nesse momento passe para uma bancada enfarinhada e sove a massa por pelo menos 20 minutos adicionando mais farinha se necessário até atingir o ponto. A massa deve desgrudar das mãos, porém ainda ter umidade e dar uma leve grudadinha! Unte as mãos e a bancada para continuar sovando até sua massa ficar bem lisinha!<br>Modele bolinhas de +ou- 120g cada uma, cubra com um pano úmido e deixe crescer por mais 1 hora até dobrar de tamanho.<br>Abra a massa, passe para uma forma enfarinhada e coloque o recheio no centro, feche as pontas e sobre a borda por cima do recheio formatando um barquinho deixando o recheio à mostra. Pincele manteiga derretida por toda a massa e leve para assar em forno pré-aquecido a 250°C por cerca de 15 minutos ou até dourar bem!",
+        cuisine: "turca",
+        type_of: 3,
+        image: "https://images.pexels.com/photos/15793822/pexels-photo-15793822/free-photo-of-comida-alimento-refeicao-carne.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Óleo", "Carne Moída", "Cebola", "Pimentão", "Tomate", "Fermento", "Manteiga", "Farinha"],
+        difficulty: "difícil",
+        restriction: ["vegano", "vegetariano"],
+        premium: false
+    },
+    {
+        name: "Pizza",
+        description: "Prepare-se para explorar uma jornada gastronômica deliciosa e descomplicada com a receita de pizza de liquidificador. Com ingredientes simples e um método fácil, você pode criar uma refeição rápida e saborosa para compartilhar com amigos e familiares. <br><br>Ingredientes:<br>Massa:<br>1 xícara (chá) de leite<br>1 ovo<br>1 colher (chá) de sal<br>1 colher (chá) de açúcar<br>1 colher (sopa) de manteiga<br>1 e 1/2 xícara (chá) de farinha de trigo<br>1 colher (sobremesa) de fermento em pó<br>1/2 lata de molho de tomate<br><br>Recheio:<br>250 g de mussarela ralada grossa<br>2 tomates fatiados<br>Azeitona picada (opcional)<br>Orégano a gosto<br><br>Modo de preparo:<br>No liquidificador bata o leite, o ovo, o sal, o açúcar, a margarina, a farinha de trigo e o fermento em pó até que tudo esteja incorporado.<br>Despeje a massa em uma assadeira para pizza untada com margarina e leve ao forno preaquecido por 20 minutos.<br>Retire do forno e despeje o molho de tomate.<br>Cubra a massa com mussarela ralada, tomate e orégano a gosto.<br>Leve novamente ao forno até derreter a mussarela.",
+        cuisine: "italiana",
+        type_of: 3,
+        image: "https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Leite", "Ovo", "Mateiga", "Farinha", "Fermento", "Molho de Tomate", "Tomate"],
+        difficulty: "médio",
+        restriction: ["laticinio", "gluten", "vegano"],
+        premium: false
+    },
+    {
+        name: "Salada ceasar",
+        description: "Esta salada clássica, além de ser uma excelente opção para um jantar equilibrado, é fácil de fazer e traz uma explosão de sabores. Com ingredientes frescos, como alface americana picada, frango grelhado em tiras e queijo parmesão ralado, essa salada é um prato completo por si só. <br><br>Ingredientes:<br>1 alface americana lavada, higienizada e picada grosseiramente<br>1 peito de frango sem osso, temperado, grelhado e picado em tiras<br>1 xícara de queijo parmesão ralado<br>2 xícaras de croutons bem crocantes (feitos com pão de fôrma sem casca (opcional)<br><br>Molho:<br>1/2 xícara de óleo<br>1 gema<br>2 dentes de alho amassados<br>2 colheres de sopa de maionese caseira<br>1 colher de sopa mostarda<br>1 colher de sopa de suco de limão<br><br>Modo de preparo:<br>Molho:<br>Coloque todos os ingredientes no liquidificador, bata bem pouco, somente para unir os ingredientes, se bater demais irá virar uma maionese.<br>Arrume a alface em uma saladeira funda, coloque o frango em tiras (opcional) e regue com o molho, polvilhe o parmesão.",
+        cuisine: "mexicana",
+        type_of: 3,
+        image: "https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Alface", "Carne de Frango", "Queijo", "Óleo", "Alho", "Maionese", "Mostarda", "Limão"],
+        difficulty: "fácil",
+        restriction: ["laticinio", "gluten", "vegano", "vegetariano"],
+        premium: false
+    },
+    {
+        name: "Batata frita",
+        description: "A batata frita sequinha é um acompanhamento clássico e delicioso. Sirva as batatas fritas sequinhas como acompanhamento para hambúrgueres, sanduíches ou como petisco. <br><br>Ingredientes:<br>Batatas (quantidade a gosto) cortadas em palitos<br>1 frigideira com óleo o suficiente para cobrir as batatas<br>1/2 colher (sopa) de amido de milho<br><br>Modo de preparo:<br>Corte as batatas em palito e seque-as com papel toalha.<br>Coloque o óleo para esquentar, quando estiver bem quente, retire 1/2 xícara desse óleo e misture a 1/2 colher de amido de milho.<br>Após misturado, volte esse óleo para frigideira, frite as batatas em fogo médio até dourarem.",
+        cuisine: "brasileira",
+        type_of: 4,
+        image: "https://images.pexels.com/photos/1893556/pexels-photo-1893556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Batata", "Óleo", "Amido de Milho"],
+        difficulty: "fácil",
+        restriction: [],
+        premium: false
+    },
+    {
+        name: "Guacamole",
+        description: "Essa pasta mexicana funciona perfeitamente como entrada em almoços e jantares, como petisco se servida junto com nachos ou torradinhas, ou até mesmo em sanduíches para dar mais cremosidade.<br><br>Ingredientes:<br>1 abacate brasileiro médio (ou 4 avocados)<br>1 tomate grande sem sementes<br>1 cebola pequena<br>2 dentes de alho bem socados<br>1 maço de coentro ou cheiro verde<br>1 pimenta malagueta sem sementes (opcional)<br>suco de 1 limão grande<br>Óleo<br>Sal<br><br>Modo de preparo:<br>Amasse o abacate com um garfo, acrescente o alho socado, o suco de limão, sal e azeite a gosto e misture como um purê.<br>Pique a cebola, o tomate e o coentro. Pique bem a pimenta.<br>Acrescente os ingredientes picados ao purê de abacate.<br>Sirva com chips, crackers, tacos, no burrito ou mesmo junto com arroz e feijão.",
+        cuisine: "mexicana",
+        type_of: 4,
+        image: "https://images.pexels.com/photos/5737573/pexels-photo-5737573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Abacate", "Tomate", "Cebola", "Alho", "Limão"],
+        difficulty: "fácil",
+        restriction: [],
+        premium: false
+    },
+    {
+        name: "Pão de queijo",
+        description: "Essa iguaria é reconhecida por seu sabor marcante e sua massa macia por dentro e crocante por fora. Prepare-se para se encantar e se deliciar com essa receita caseira de pão de queijo, capaz de encher sua casa com um perfume inconfundível!<br><br>Ingredientes:<br>800 g de polvilho azedo<br>1 xícara de água<br>1 xícara de leite<br>1/2 xícara de óleo<br>2 ovos<br>100 g de queijo parmesão ralado<br>Sal a gosto<br><br>Modo de preparo:<br>Em uma panela, ferva a água e acrescente o leite, o óleo e o sal.<br>Adicione o polvilho aos poucos até dar liga. Pode ser que você não precise usar os 800g, então coloque devagar e sove a massa até soltar da mão: esse é o ponto.<br>Quando a massa estiver morna, acrescente o queijo parmesão, os ovos e misture bem.<br>Unte as mãos e enrole bolinhas de 2 cm de diâmetro.<br>Disponha as bolinhas em uma assadeira untada com óleo, deixando um espaço entre elas.<br>Asse em forno médio (180º C), preaquecido, por cerca de 40 minutos.",
+        cuisine: "brasileira",
+        type_of: 4,
+        image: "https://images.pexels.com/photos/4197910/pexels-photo-4197910.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Polvilho Azedo", "Leite", "Óleo", "Ovo", "Queijo"],
+        difficulty: "médio",
+        restriction: ["laticinio", "vegano"],
+        premium: false
+    },
+    {
+        name: "Donut",
+        description: "Os donuts são perfeitos para qualquer momento do dia. Servidos quentes e frescos, eles são uma excelente opção para acompanhar o café da manhã, um lanche da tarde ou até mesmo como uma sobremesa deliciosa.<br><br>Ingredientes:<br>200 ml de leite morno<br>10 g de fermento biológico<br>400 g de farinha<br>2 colheres de leite em pó<br>40 g de manteiga<br>1 ovo<br>70 g de açúcar<br>Pitadinha de sal<br>Óleo para fritar<br><br>Glacê (opcional)<br>35 g de manteiga em temperatura ambiente<br>200 g de açúcar de confeiteiro<br>1/2 colher de chá de suco de limão<br>40 ml de água quente<br>gotinhas de corante que desejar<br><br>Modo de preparo:<br>Misture o leite com o fermento, deixe por 15 minutos descansar.<br>Depois de descansar junte a farinha, a manteiga, o ovo e o açúcar, o leite em pó, bata a massa por 5 minutos , acrescente o sal, deixe a massa descansar por 40 minutos. Abra a massa (1,5 cm de altura), corte com o cortador circular e outro circular pequeno no centro, deixe descansar por 20 minutos.<br>Aqueça o óleo em uma panela e frite os donuts.<br><br>Glacê:<br>Misture a manteiga e o açúcar, depois coloque o suco de limão e a água e bata até a mistura ficar lisa e as gotinhas de corante até a cor desejada.<br>Espere o Donut esfriar , passe o glacê quando ele estiver mais durinho e para enfeitar pode colocar granulado colorido.",
+        cuisine: "americana",
+        type_of: 4,
+        image: "https://images.pexels.com/photos/4686962/pexels-photo-4686962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Leite", "Fermento", "Farinha", "Óleo", "Leite em Pó", "Manteiga", "Ovo"],
+        difficulty: "médio",
+        restriction: ["gluten", "laticinio"],
+        premium: false
+    },
+    {
+        name: "Cachorro quente",
+        description: "O cachorro-quente é a escolha perfeita para qualquer refeição rápida e deliciosa. Ideal para saborear com os amigos, em festas, eventos ou aquele lanche caprichado que você deseja saborear a qualquer hora do dia.<br><br>Ingredientes:<br>300 g de salsicha<br>1 cebola<br>1 tomate<br>Óleo<br>1 copo de molho de tomate<br>Pouco menos de meio copo de água<br><br>Modo de preparo:<br>Pique a cebola e o tomate, refogue bem no óleo.<br>Acrescente o molho de tomate, corte a salsicha em rodelas e deixe cozinhar a gosto, se preciso acrescente a medida de água.<br>Depois de cozinhar bem, é só servir.",
+        cuisine: "brasileira",
+        type_of: 4,
+        image: "https://images.pexels.com/photos/4518656/pexels-photo-4518656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Salsicha", "Cebola", "Tomate", "Óleo", "Molho de Tomate"],
+        difficulty: "fácil",
+        restriction: ["vegano", "vegetariano"],
+        premium: false
+    },
+    {
+        name: "Sanduíche natural",
+        description: "O sanduíche natural é uma opção saudável e deliciosa que combina a suavidade do frango desfiado com uma variedade de temperos e ingredientes frescos.  Com o processo de preparo descomplicado e acessível, é possível reproduzir este sanduíche em sua própria cozinha, permitindo que você e sua família desfrutem de uma opção saudável e reconfortante a qualquer momento.<br><br>Ingredientes:<br>100 g de frango desfiado pré-cozido<br>1/2 cebola pequena picada<br>1/2 tomate picado<br>1 cenoura pequena ralada<br>1/2 lata de milho verde (opcional)<br>Salsinha e cebolinha a gosto<br>Sal a gosto<br>Maionese (opcional)<br>Pão de forma<br><br>Modo de preparo:<br>Refogue o frango desfiado com azeite, alho e cebola em uma panela.<br>Misture a cebola e o tomate picados, a cenoura ralada, o milho, a salsa, a cebolinha e o sal.<br>Adicione maionese até obter a consistência desejada do recheio.Cremosa ou mais consistente, como você preferir.<br>Coloque o recheio entre 2 fatias de pão de forma.",
+        cuisine: "brasileira",
+        type_of: 4,
+        image: "https://images.pexels.com/photos/1633526/pexels-photo-1633526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Carne de Frango", "Cebola", "Tomate", "Cenoura", "Pão"],
+        difficulty: "fácil",
+        restriction: ["vegano", "vegetariano", "gluten"],
+        premium: false
+    },
+    {
+        name: "Bolo de morango",
+        description: "Um bolo de morango deliciosamente macio, com camadas de bolo fofo intercaladas com recheio cremoso de morango fresco, coberto com uma generosa camada de chantilly e decorado com fatias suculentas de morango fresco. <br><br>Ingredientes:<br>Para o bolo:<br>2 xícaras de farinha de trigo<br>1 e 1/2 xícaras de açúcar<br>1/2 xícara de manteiga (em temperatura ambiente)<br>3 ovos<br>1 colher de chá de essência de baunilha<br>1 colher de sopa de fermento em pó<br>1/2 colher de chá de sal<br>1 xícara de leite<br>Para o recheio e cobertura:<br>500g de morangos frescos (divididos: 300g para o recheio e 200g para decorar)<br>1/4 de xícara de açúcar<br>2 xícaras de chantilly (ou creme de leite fresco batido)<br>Morangos adicionais para decorar<br><br>Instruções:<br>Pré-aqueça o forno a 180°C. Unte e enfarinhe duas formas de bolo redondas de 20cm de diâmetro.<br>Em uma tigela grande, misture a farinha, o açúcar, o fermento em pó e o sal.<br>Adicione a manteiga e misture até obter uma textura de migalhas grossas.<br>Em outra tigela, bata os ovos levemente com a essência de baunilha. Adicione essa mistura à tigela de ingredientes secos, alternando com o leite, começando e terminando com os ingredientes secos.<br>Divida a massa igualmente entre as duas formas preparadas e leve ao forno pré-aquecido por cerca de 25-30 minutos, ou até que um palito inserido no centro saia limpo.<br>Enquanto os bolos estão assando, prepare o recheio e a cobertura. Em uma panela pequena, coloque os 300g de morangos picados e o açúcar. Cozinhe em fogo médio-baixo até os morangos se desfazerem e o açúcar dissolver, formando uma geleia grossa. Deixe esfriar.<br>Quando os bolos estiverem prontos, deixe esfriar completamente antes de montar o bolo. Espalhe metade da geleia de morango sobre uma das camadas de bolo, em seguida, cubra com chantilly batido. Repita o processo com a segunda camada de bolo.<br>Decore o topo do bolo com chantilly e morangos frescos fatiados.<br>Refrigere o bolo por pelo menos uma hora antes de servir para firmar o recheio e a cobertura.",
+        cuisine: "brasileira",
+        type_of: 5,
+        image: "https://images.pexels.com/photos/15071188/pexels-photo-15071188/free-photo-of-comida-alimento-refeicao-frutas.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Leite", "Ovo", "Fermento", "Morango", "Farinha", "Creme de Leite", "Essência de Baunilha"],
+        difficulty: "médio",
+        restriction: ["gluten", "laticinio", "vegano"],
+        premium: false
+    },
+    {
+        name: "Pudim",
+        description: "O pudim caseiro é uma sobremesa clássica e reconfortante, perfeito para encerrar qualquer refeição com um toque de doçura. Feito com ingredientes frescos e preparado com cuidado, cada porção é uma combinação perfeita de textura cremosa e sabor delicado.<br><br>Ingredientes:<br>1 xícara (chá) de açúcar<br>1 lata de leite condensado<br>2 latas de leite (medida da lata de leite condensado)<br>3 ovos<br><br>Modo de preparo:<br>Calda:<br>Em uma panela de fundo largo, derreta o açúcar até ficar dourado.<br>Junte 1/2 xícara (chá) de água quente e mexa com uma colher.<br>Deixe ferver até dissolver os torrões de açúcar e a calda engrossar.<br>Forre com a calda uma fôrma com furo central (19cm de diâmetro) e reserve.<br><br>Pudim:<br>Bata todos os ingredientes do pudim no liquidificador e despeje na fôrma reservada.<br>Asse em banho-maria, em forno médio (180º C), por cerca de 1 hora e 30 minutos.<br>Depois de frio, leve para gelar por cerca de 6 horas.<br>Desenforme e sirva a seguir.",
+        cuisine: "brasileira",
+        type_of: 5,
+        image: "https://images.pexels.com/photos/15726223/pexels-photo-15726223/free-photo-of-placa-prato-doce-bala.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Leite", "Leite Condensado", "Ovo"],
+        difficulty: "médio",
+        restriction: ["vegano", "laticinio"],
+        premium: false
+    },
+    {
+        name: "Brownie",
+        description: "Quando o desejo por um doce irresistível bate à porta, o brownie super rápido é a solução perfeita para satisfazer o paladar com uma sobremesa deliciosa e de preparo ágil. Esta receita é uma mistura perfeita de sabores intensos e praticidade, resultando em um brownie macio por dentro, com uma crosta levemente caramelizada por fora. <br><br>Ingredientes:<br>6 colheres (sopa) bem cheias, de manteiga<br>5 xícaras (chá) achocolatado ou  chocolate em pó<br>1 e 1/4 xícara (chá) farinha de trigo<br>2 xícaras (chá) açúcar<br>4 ovos<br>2 pitadas de sal<br>1 colher (chá) de extrato ou essência de baunilha<br>1 tablete de chocolate meio amargo picado em cubinhos<br>1/2 xícara (chá) de nozes picadas ou castanhas de caju granuladas (opcional)<br><br>Modo de preparo:<br>Misture os ovos e o açúcar.<br>Em seguida, agregue todos os outros ingredientes até formar um creme uniforme.<br>Despeje em uma assadeira, forrada com papel-manteiga e leve ao forno médio por 40 minutos.<br>O brownie estará pronto quando a parte de cima estiver levemente corada e, ao se espetar um palito, ele estará levemente úmido (devido ao chocolate derretido).<br>Corte em quadrados ainda quentes e sirva com uma bola de sorvete de creme, ou congele num saquinho para freezer.",
+        cuisine: "americana",
+        type_of: 5,
+        image: "https://images.pexels.com/photos/12077979/pexels-photo-12077979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Manteiga", "Chocolate em Pó", "Farinha", "Ovo", "Essência de Baunilha", "Chocolate"],
+        difficulty: "médio",
+        restriction: ["gluten", "laticinio", "vegano"],
+        premium: false
+    },
+    {
+        name: "Petit gateau",
+        description: "Para os amantes de doces, certamente o petit gateau é a escolha perfeita! Com sua casquinha crocante por fora e recheio de chocolate derretido por dentro, essa delícia conquista paladares em todo o mundo.<br><br>Ingredientes:<br>200 g de chocolate meio amargo<br>2 colheres de manteiga sem sal<br>1/4 xícara (chá) de açúcar<br>2 colheres (sopa) rasas de farinha de trigo<br>2 ovos inteiros (tire a pele da gema)<br>2 gemas<br><br>Modo de preparo:<br>Derreta a manteiga e o chocolate em banho-maria.<br>Bata os ovos e as gemas com açúcar na batedeira, até ficar bem claro.<br>Junte o chocolate derretido e a farinha de trigo, misturando com uma espátula.<br>Depois, unte as forminhas de empadinha, passe farinha de trigo e coloque a massa.<br>Preaqueça o forno e leve para assar de 6 a 10 minutos (em fogo alto) até os bolinhos crescerem, mas o meio deve ficar molinho.<br>Deve-se desenformar ainda quente.<br>Sirva diretamente no prato, acompanhado com sorvete de creme.",
+        cuisine: "francesa",
+        type_of: 5,
+        image: "https://images.pexels.com/photos/20522414/pexels-photo-20522414/free-photo-of-chocolate-sobremesa-fotografia-de-alimentos-fotografia-de-comida.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ingredients: ["Manteiga", "Farinha", "Ovo", "Chocolate"],
+        difficulty: "médio",
+        restriction: ["gluten", "laticinio", "vegano"],
+        premium: false
+    }
 ]);

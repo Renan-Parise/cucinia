@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Recipes = ({
   recipes,
@@ -33,9 +33,11 @@ const Recipes = ({
               <div className="flex justify-between justify-end">
                 <h2 className="font-bold w-3/4 text-lg card-title">
                   {recipe.name}
-                  <div class="badge text-neutral bg-yellow-400">
-                    PRO
-                  </div>
+                  {user && recipe.premium && (
+                    <div className="badge text-neutral bg-yellow-400">
+                      PRO
+                    </div>
+                  )}
                 </h2>
                 <div className="tooltip flex tooltip-secondary tooltip-bottom" data-tip={`Nesta receita, você tem ${countAvailableIngredients(recipe.ingredients)} ingredientes necessários para fazer a receita, e precisa de ${recipe.ingredients.length} para fazê-la.`}>
                   <button

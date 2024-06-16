@@ -29,7 +29,7 @@ type DB interface {
 	CreateRecipe(recipe *model.Recipe) error
 	UpdateRecipe(id string, recipe *model.Recipe) error
 	DeleteRecipe(id string) error
-	GetRecipesByMultipleCriteria(excludedRestriction []string, ingredient, typeOf, cuisine string) ([]*model.Recipe, error)
+	GetRecipesByMultipleCriteria(excludedRestriction []string, ingredient, typeOf, cuisine string, userPremium bool) ([]*model.Recipe, error)
 
 	CreateUser(user *model.User) error
 	DeleteUser(email string) error
@@ -42,6 +42,8 @@ type DB interface {
 
 	GetAllUsers() ([]*model.User, error)
 	GetUserByEmail(email string) (*model.User, error)
+
+	SetUserPremium(email string, premium bool) error
 }
 
 type MongoDB struct {
@@ -310,7 +312,7 @@ func (m MongoDB) CreateRecipe(recipe *model.Recipe) error {
 		}
 	}
 
-	validCuisines := map[string]bool{"italiana": true, "francesa": true, "brasileira": true}
+	validCuisines := map[string]bool{"italiana": true, "francesa": true, "brasileira": true, "americana": true, "mexicana": true, "turca": true, "chinesa": true}
 	if !validCuisines[recipe.Cuisine] {
 		return errors.New("culinária '" + recipe.Cuisine + "' não é válida")
 	}
@@ -357,6 +359,7 @@ func (m MongoDB) UpdateRecipe(id string, recipe *model.Recipe) error {
 			"ingredients": recipe.Ingredients,
 			"difficulty":  recipe.Difficulty,
 			"restriction": recipe.Restriction,
+			"premium":     recipe.Premium,
 			"percentage":  recipe.Percentage,
 		},
 	}
@@ -383,7 +386,7 @@ func (m MongoDB) DeleteRecipe(id string) error {
 	return nil
 }
 
-func (m MongoDB) GetRecipesByMultipleCriteria(excludedRestrictions []string, ingredient, typeOf, cuisine string) ([]*model.Recipe, error) {
+func (m MongoDB) GetRecipesByMultipleCriteria(excludedRestrictions []string, ingredient, typeOf, cuisine string, userPremium bool) ([]*model.Recipe, error) {
 	filter := bson.M{}
 
 	if typeOf != "" {
@@ -434,6 +437,10 @@ func (m MongoDB) GetRecipesByMultipleCriteria(excludedRestrictions []string, ing
 		return nil, nil
 	}
 
+	if !userPremium {
+		filter["premium"] = false
+	}
+
 	cursor, err := m.recipeCollection.Find(context.TODO(), filter)
 	if err != nil {
 		return nil, errors.New("error fetching recipes")
@@ -466,6 +473,8 @@ func (m MongoDB) GetRecipesByMultipleCriteria(excludedRestrictions []string, ing
 }
 
 func (m MongoDB) CreateUser(user *model.User) error {
+	user.Premium = false
+
 	_, err := m.userCollection.InsertOne(context.Background(), user)
 	if err != nil {
 		log.Println("Failed to create user:", err)
@@ -630,5 +639,15 @@ func (m MongoDB) UnlikeRecipe(email string, recipeID string) error {
 		return err
 	}
 
+	return nil
+}
+
+func (m MongoDB) SetUserPremium(email string, premium bool) error {
+	filter := bson.M{"email": email}
+	update := bson.M{"$set": bson.M{"premium": premium}}
+	_, err := m.userCollection.UpdateOne(context.Background(), filter, update)
+	if err != nil {
+		return err
+	}
 	return nil
 }

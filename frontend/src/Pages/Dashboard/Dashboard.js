@@ -391,7 +391,7 @@ function Dashboard() {
                   user={user}
                   mealTypeNumber={mealTypeNumber}
                   mapMealType={mapMealType}
-                />
+                />            
               )}
             </>
           )}
