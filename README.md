@@ -90,8 +90,7 @@ Expected Payload:
 ```sh
 {
   "name": "string",
-  "
-Description": "string"
+  "description": "string"
 }
 ```
 Expected Response: JSON object of created Ingredient.
@@ -181,7 +180,7 @@ Expected Payload:
 ```sh
 {
   "name": "string",
-  "Description": "string",
+  "description": "string",
   "ingredients": ["string"],
   "type_of": "string",
   "cuisine": "string",
@@ -279,7 +278,7 @@ Method: POST
 
 Description: Add an ingredient to a user's profile.
 Expected Payload:
-```
+```sh
 {
   "email": "string",
   "ingredient": "string"
