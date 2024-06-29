@@ -3,7 +3,7 @@ services:
   dev_db:
     image: mongo:6.0.3
     environment:
-      INIT_WAIT_SEC: 4
+      INIT_WAIT_SEC: 3
       MONGO_INITDB_DATABASE: cucinia
     ports:
       - 27017:27017

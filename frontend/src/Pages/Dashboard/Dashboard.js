@@ -428,13 +428,26 @@ function Dashboard() {
               />
             </label>
             <div className="flex flex-col items-center justify-center">
-              <button type="submit" className="btn btn-secondary text-center w-full mt-2" disabled={loading}>
-                {loading ? (
-                  <span className="bg-secondary loading loading-spinner loading-sm"></span>
-                ) : (
-                  "Adicionar com IA"
-                )}
-              </button>
+              {user && user.premium ? (
+                <button type="submit" className="btn btn-secondary text-center w-full mt-2" disabled={loading}>
+                  {loading ? (
+                    <span className="bg-secondary loading loading-spinner loading-sm"></span>
+                  ) : (
+                    "Adicionar com IA"
+                  )}
+                </button>
+              ) : (
+                <button className="btn btn-disabled text-center w-full mt-2">
+                  <div className="badge border-none text-neutral bg-yellow-400">
+                    PRO
+                  </div>
+                  {loading ? (
+                    <span className="bg-secondary loading loading-spinner loading-sm"></span>
+                  ) : (
+                    "Adicionar com IA"
+                  )}
+                </button>
+              )}
             </div>
           </form>
           

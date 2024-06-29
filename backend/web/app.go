@@ -39,6 +39,7 @@ func (a *App) setupRoutes(cors bool) {
 			c.Writer.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
 			c.Writer.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
 			c.Writer.Header().Set("Access-Control-Allow-Headers", "Origin, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+			c.Writer.Header().Set("ngrok-skip-browser-warning", "true")
 			if c.Request.Method == "OPTIONS" {
 				c.AbortWithStatus(http.StatusOK)
 				return
@@ -749,30 +750,6 @@ func (a *App) GetUserLikedRecipes(c *gin.Context) {
 		return
 	}
 
-	val, err := a.rdb.Get("user:" + email).Result()
-	if err == nil {
-		var user *model.User
-		if err := json.Unmarshal([]byte(val), &user); err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse user data"})
-			return
-		}
-
-		var detailedRecipes []model.Recipe
-		for _, recipeID := range user.LikedRecipes {
-			recipe, err := a.getRecipeByIDWithCache(recipeID)
-			if err != nil {
-				log.Println("Error fetching recipe by ID:", err)
-				continue
-			}
-			if recipe != nil {
-				detailedRecipes = append(detailedRecipes, *recipe)
-			}
-		}
-
-		c.JSON(http.StatusOK, gin.H{"liked_recipes": detailedRecipes})
-		return
-	}
-
 	user, err := a.d.GetUserByEmail(email)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch user"})
@@ -784,14 +761,10 @@ func (a *App) GetUserLikedRecipes(c *gin.Context) {
 		return
 	}
 
-	userJSON, err := json.Marshal(user)
-	if err == nil {
-		a.rdb.Set("user:"+email, userJSON, 0)
-	}
-
 	var detailedRecipes []model.Recipe
+
 	for _, recipeID := range user.LikedRecipes {
-		recipe, err := a.getRecipeByIDWithCache(recipeID)
+		recipe, err := a.d.GetRecipeByID(recipeID)
 		if err != nil {
 			log.Println("Error fetching recipe by ID:", err)
 			continue
