@@ -87,13 +87,13 @@ Method: POST
 
 Description: Create a new ingredient.
 Expected Payload:
-json
-Copiar código
+```sh
 {
   "name": "string",
   "
 Description": "string"
 }
+```
 Expected Response: JSON object of created Ingredient.
 
 #### PATCH /api/v1/ingredients/
@@ -178,17 +178,16 @@ Method: POST
 
 Description: Create a new recipe.
 Expected Payload:
-json
-Copiar código
+```sh
 {
   "name": "string",
-  "
-Description": "string",
+  "Description": "string",
   "ingredients": ["string"],
-  "type": "string",
+  "type_of": "string",
   "cuisine": "string",
   "premium": true/false
 }
+```
 Expected Response: JSON object of created Recipe.
 
 #### PATCH /api/v1/recipes/
@@ -217,12 +216,12 @@ Method: POST
 
 Description: Register a new user.
 Expected Payload:
-json
-Copiar código
+```sh
 {
   "email": "string",
   "password": "string"
 }
+```
 Expected Response: JSON object of created User.
 
 #### POST /api/v1/login
@@ -231,12 +230,12 @@ Method: POST
 
 Description: Authenticate a user.
 Expected Payload:
-json
-Copiar código
+```sh
 {
   "email": "string",
   "password": "string"
 }
+```
 Expected Response: JSON object with login message and User details on success.
 
 #### DELETE /api/v1/users/
@@ -280,12 +279,12 @@ Method: POST
 
 Description: Add an ingredient to a user's profile.
 Expected Payload:
-json
-Copiar código
+```
 {
   "email": "string",
   "ingredient": "string"
 }
+```
 Expected Response: JSON object with success message and updated User.
 
 #### POST /api/v1/user-ingredients/remove
@@ -294,12 +293,12 @@ Method: POST
 
 Description: Remove an ingredient from a user's profile.
 Expected Payload:
-json
-Copiar código
+```sh
 {
   "email": "string",
   "ingredient": "string"
 }
+```
 Expected Response: JSON object with success message and updated User.
 
 #### DELETE /api/v1/user-ingredients/remove/all
@@ -308,11 +307,11 @@ Method: DELETE
 
 Description: Remove all ingredients from a user's profile.
 Expected Payload:
-json
-Copiar código
+```sh
 {
   "email": "string"
 }
+```
 Expected Response: JSON object with success message.
 Recipe Actions
 
@@ -322,12 +321,12 @@ Method: POST
 
 Description: Like a recipe for a user.
 Expected Payload:
-json
-Copiar código
+```sh
 {
   "email": "string",
   "recipe_id": "string"
 }
+```
 Expected Response: JSON object with success message and updated User.
 
 #### POST /api/v1/unlike-recipe
@@ -336,12 +335,12 @@ Method: POST
 
 Description: Unlike a recipe for a user.
 Expected Payload:
-json
-Copiar código
+```sh
 {
   "email": "string",
   "recipe_id": "string"
 }
+```
 Expected Response: JSON object with success message and updated User.
 Premium Upgrade
 
@@ -350,11 +349,11 @@ Method: POST
 
 Description: Upgrade a user to premium.
 Expected Payload:
-json
-Copiar código
+```sh
 {
   "email": "string"
 }
+```
 Expected Response: JSON object with success message and updated User.
 
 ### AI Integration
