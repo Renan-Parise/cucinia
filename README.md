@@ -113,7 +113,8 @@ Description: Delete an ingredient by ID.
 URL Parameters:
 id (string): ID of the ingredient to delete.
 Expected Response: No content (204).
-Recipes
+
+## Recipes
 
 #### GET /api/v1/recipes
 
@@ -184,7 +185,7 @@ Expected Payload:
   "ingredients": ["string"],
   "type_of": "string",
   "cuisine": "string",
-  "premium": true/false
+  "premium": bool
 }
 ```
 Expected Response: JSON object of created Recipe.
@@ -207,7 +208,8 @@ Description: Delete a recipe by ID.
 URL Parameters:
 id (string): ID of the recipe to delete.
 Expected Response: No content (204).
-Users
+
+## Users
 
 #### POST /api/v1/register
 
@@ -270,7 +272,8 @@ Description: Retrieve liked recipes of a user.
 Query Parameters:
 email (string, required): Email of the user.
 Expected Response: JSON array of Recipe objects.
-User Ingredients
+
+## User Ingredients
 
 #### POST /api/v1/user-ingredients/add
 
@@ -312,7 +315,9 @@ Expected Payload:
 }
 ```
 Expected Response: JSON object with success message.
-Recipe Actions
+
+
+## Recipe Actions
 
 #### POST /api/v1/like-recipe
 
@@ -341,7 +346,8 @@ Expected Payload:
 }
 ```
 Expected Response: JSON object with success message and updated User.
-Premium Upgrade
+
+## Premium Upgrade
 
 #### POST /api/v1/upgrade
 Method: POST
@@ -355,7 +361,7 @@ Expected Payload:
 ```
 Expected Response: JSON object with success message and updated User.
 
-### AI Integration
+## AI Integration
 
 #### POST /api/v1/gen
 
