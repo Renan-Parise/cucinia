@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Tema, Resumo e Conclusão](#tema-resumo-e-Conclusão)
+- [Tema, Resumo e Conclusão](#tema-resumo-e-conclusao)
 - [Regras de negócio e Histórias de usuário](#regras-de-negocio-e-historias-de-usuario)
 - [Matriz de rastreabilidade de requisitos](#matriz-de-rastreabilidade-de-requisitos)
 - [UML](#uml)
