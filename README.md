@@ -1,4 +1,4 @@
-# 2Chefs API Documentation
+# Cucinia API Documentation
 
 ## Table of Contents
 
