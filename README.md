@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [Tema, Resumo e Conclusão](#tema-resumo-e-Conclusão)
-- [Regras de negócio e Histórias de usuário](#regras-de-negocio-e-historia-de-usuario)
+- [Regras de negócio e Histórias de usuário](#regras-de-negocio-e-historias-de-usuario)
 - [Matriz de rastreabilidade de requisitos](#matriz-de-rastreabilidade-de-requisitos)
 - [UML](#uml)
 - [Diagrama de classes](#diagrama-de-classes)
