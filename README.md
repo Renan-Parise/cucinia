@@ -2,6 +2,9 @@
 
 ## Table of Contents
 
+- [Tema, Resumo e Conclusão](#tema-reumo-conclusao)
+- [Regras de negócio e Histórias de usuário](#negocio-usuario)
+- [Matriz de rastreabilidade de requisitos](#matriz_uc)
 - [Environment Setup](#environment-setup)
 - [Development Mode](#start-in-development-mode)
 - [Production Mode](#start-in-production-mode)
@@ -40,7 +43,25 @@
     - [POST /api/v1/upgrade](#post-apiv1upgrade)
   - [AI Integration](#ai-integration)
     - [POST /api/v1/gen](#post-apiv1gen)
-   
+
+## Tema, Resumo e Conclusão
+
+Tema: 2chefs, software de recomendação de receitas
+Resumo: Considerando a dificuldade diária para possuir tempo, criatividade e habilidades especializadas ao cozinhar, o 2chefs utiliza essa problemática para oferecer uma eficiente solução para a tarefa de preparação de refeições: os usuários não sabem o que cozinhar com ingredientes limitados em casa. Em outras palavras, o objetivo principal é prover software prático e acessível possibilitando que usuários, independente de idade ou experiência culinária, preparem deliciosas refeições a partir de ingredientes disponíveis em casa. O Software oferece uma vasta gama de receitas, categorizadas por dificuldade e tipo de cozinha, o que diminui o desperdício de alimentos e incentiva as pessoas a comer melhor. As metodologias envolveram o levantamento de requisitos do sistema, a definição de cronograma, a escolha dos softwares, linguagens de programação, e escolha da inteligência artificial e, por fim, a realização de testes. Em geral, este estudo demonstra que o 2chefs é uma ferramenta importante e eficaz para ajudar os usuários a cozinhar com os alimentos disponíveis. O software é conveniente de usar, oferece muitas receitas e, assim, pode ser personalizado. Portanto, jovens ou apenas os que começam a cozinhar sentirão facilidade ​​ao usá-lo. Em resumo, devido ao sucesso desta etapa, o 2chefs tem um futuro brilhante na indústria. No final, será possível dizer que o 2chefs tornou-se indispensável nas cozinhas domésticas.
+Conclusão: Com tudo isso, o software 2chefs prova que é possível oferecer uma solução prática e eficiente para um problema comum entre muitas pessoas. Não é apenas útil para pessoas sem habilidades e com pouco tempo disponível, mas também ajuda a evitar o desperdício de alimentos e incentiva o ato de cozinhar como algo acessível e não estressante. Os resultados com base no feedback dos usuários revelaram que eles estavam satisfeitos com a facilidade de uso juntamente à variabilidade de receitas. Embora o programa tenha sido projetado para jovens que começam suas vidas independentes, a ferramenta também se revelou útil para cozinheiros amadores e profissionais de todas as idades, o que destaca sua versatilidade e relevância.
+Em versões futuras, o 2chefs poderia conter mais funcionalidades, como a lista de compras integrada, substituição de sugestão de receita e modos de receita mais detalhados. Além disso, a expansão contínua do banco de dados de receitas manterá o software atualizado. Em suma, 2chefs provou ser uma ferramenta inovadora que muda a culinária de muitas pessoas, promovendo hábitos saudáveis ​​e sustentáveis, práticos e criativos.
+
+## Regras de negócio e Histórias de usuário
+
+Link: https://docs.google.com/document/d/1juVeQnhg9aY4ck-DvhZLoUm1NzayuJhkpp8WUfNbVSI/edit?usp=sharing
+
+## Matriz de rastreabilidade de requisitos
+
+Link: https://docs.google.com/spreadsheets/d/10C2Ntn1VEuH-RwxZjihrsML1-38haWXQ5grszJFyVW8/edit?usp=drive_link
+
+
+
+
 ## Environment setup
 
 You need to have [Go](https://golang.org/),
