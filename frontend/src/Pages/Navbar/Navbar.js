@@ -42,12 +42,11 @@ function Navbar() {
             <ul tabIndex="0" className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64">
               <li><a href="/dashboard/add">Adicionar/editar ingredientes</a></li>
               <li><a href="/dashboard/liked">Ver receitas favoritas</a></li>
-              <li><a href="/dashboard/config">Configurações de restrição</a></li>
             </ul>
           </div>
         </div>
         <div className="navbar-center">
-          <a className="btn btn-ghost text-xl">Cucinia
+          <a className="btn btn-ghost text-xl">2Chefs
             {user && user.premium && (
               <div class="badge text-neutral bg-yellow-400">
                 PRO

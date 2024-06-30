@@ -1,5 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import loginPhoto from './photo.jpeg';
+import backgroundImg from './5.jpg';
+
+const Container = styled.section`
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(${backgroundImg});
+`;
+
+const RegisterBox = styled.div`
+  background-color: #f9fafb;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  padding: 1.25rem;
+  max-width: 80rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -56,32 +78,59 @@ function Register() {
 
   return (
     <>
-      <div>
-        <h1>Registration Form</h1>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
+      <Container>
+        <RegisterBox>
+          <div className="md:w-1/2 py-8 md:px-16">
+            <h2 className="font-bold text-2xl text-secondary">Registrar</h2>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <input
+                className="p-2 mt-8 rounded-xl border"
+                type="text"
+                name="name"
+                placeholder="Nome"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                className="p-2 rounded-xl border w-full"
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              <input
+                className="p-2 rounded-xl border w-full"
+                type="password"
+                name="password"
+                placeholder="Senha"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+              <button className="bg-secondary rounded-xl text-white py-2 hover:scale-105 duration-300">
+                Register
+              </button>
+            </form>
+            
+            <div className="text-xs border-b py-4 text-secondary">
+              Esqueceu sua senha?
+            </div>
+
+            <div className="text-xs flex justify-between mt-3 text-secondary">
+              <p>Já tem conta?</p>
+              <a href="/login" className="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300">
+                Login
+              </a>
+            </div>
           </div>
-          <div>
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
+          <div className="md:block mr-8 hidden w-1/2">
+            <img src={loginPhoto} className="rounded-lg" alt="login" />
           </div>
-          <div>
-            <label htmlFor="password">Password:</label>
-            <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
-          </div>
-          <button type="submit">Register</button>
-        </form>
-      </div>
-      
-      {registrationSuccess && (
-        <div className="toast">
-          <div className="alert alert-success">
-            <span>Account created!</span>
-          </div>
-        </div>
-      )}
+        </RegisterBox>
+      </Container>
     </>
   );
 }
