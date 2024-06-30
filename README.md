@@ -4,7 +4,10 @@
 
 - [Tema, Resumo e Conclusão](#tema-reumo-conclusao)
 - [Regras de negócio e Histórias de usuário](#negocio-usuario)
-- [Matriz de rastreabilidade de requisitos](#matriz_uc)
+- [Matriz de rastreabilidade de requisitos](#matriz-uc)
+- [UML](#uml)
+- [Diagrama de classes](#diagrama-de-classes)
+- [Wireframe](#wireframe)
 - [Environment Setup](#environment-setup)
 - [Development Mode](#start-in-development-mode)
 - [Production Mode](#start-in-production-mode)
@@ -59,7 +62,17 @@ Link: https://docs.google.com/document/d/1juVeQnhg9aY4ck-DvhZLoUm1NzayuJhkpp8WUf
 
 Link: https://docs.google.com/spreadsheets/d/10C2Ntn1VEuH-RwxZjihrsML1-38haWXQ5grszJFyVW8/edit?usp=drive_link
 
+## UML
 
+Link: https://lucid.app/lucidchart/invitations/accept/inv_27b8470d-31f6-4e42-9605-5c3f98f1abfd
+
+## Diagrama de classes
+
+Link: https://lucid.app/lucidchart/invitations/accept/inv_edbb30d0-2153-418c-9f4a-7940cd0e81bc
+
+## Wireframe
+
+![image](https://github.com/Renan-Parise/cucinia/assets/124601530/3e9265d3-fcc7-4aae-bc7c-56e8d59d93a9)
 
 
 ## Environment setup
