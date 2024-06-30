@@ -1,4 +1,76 @@
-# 2Chefs
+# Cucinia API Documentation
+
+## Table of Contents
+
+- [Tema, Resumo e Conclusão](#tema-resumo-e-conclusao)
+- [Regras de negócio e Histórias de usuário](#regras-de-negocio-e-historias-de-usuario)
+- [Matriz de rastreabilidade de requisitos](#matriz-de-rastreabilidade-de-requisitos)
+- [UML](#uml)
+- [Diagrama de classes](#diagrama-de-classes)
+- [Wireframe](#wireframe)
+- [Environment Setup](#environment-setup)
+- [Development Mode](#start-in-development-mode)
+- [Production Mode](#start-in-production-mode)
+- [API Routes Documentation](#api-routes-documentation)
+  - [Ingredients](#ingredients)
+    - [GET /api/v1/ingredients](#get-apiv1ingredients)
+    - [GET /api/v1/ingredients/](#get-apiv1ingredients-1)
+    - [POST /api/v1/ingredients](#post-apiv1ingredients)
+    - [PATCH /api/v1/ingredients/](#patch-apiv1ingredients)
+    - [DELETE /api/v1/ingredients/](#delete-apiv1ingredients)
+  - [Recipes](#recipes)
+    - [GET /api/v1/recipes](#get-apiv1recipes)
+    - [GET /api/v1/recipes/by-cuisine/](#get-apiv1recipes-by-cuisine)
+    - [GET /api/v1/recipes/by-id/](#get-apiv1recipes-by-id)
+    - [GET /api/v1/recipes/by-type/](#get-apiv1recipes-by-type)
+    - [GET /api/v1/recipes/by-ingredient/](#get-apiv1recipes-by-ingredient)
+    - [GET /api/v1/recipes/by-multiple-criteria](#get-apiv1recipes-by-multiple-criteria)
+    - [POST /api/v1/recipes](#post-apiv1recipes)
+    - [PATCH /api/v1/recipes/](#patch-apiv1recipes)
+    - [DELETE /api/v1/recipes/](#delete-apiv1recipes)
+  - [Users](#users)
+    - [POST /api/v1/register](#post-apiv1register)
+    - [POST /api/v1/login](#post-apiv1login)
+    - [DELETE /api/v1/users/](#delete-apiv1users)
+    - [GET /api/v1/users](#get-apiv1users)
+    - [GET /api/v1/users/](#get-apiv1users-1)
+    - [GET /api/v1/users/liked-recipes](#get-apiv1users-liked-recipes)
+  - [User Ingredients](#user-ingredients)
+    - [POST /api/v1/user-ingredients/add](#post-apiv1user-ingredients-add)
+    - [POST /api/v1/user-ingredients/remove](#post-apiv1user-ingredients-remove)
+    - [DELETE /api/v1/user-ingredients/remove/all](#delete-apiv1user-ingredients-remove-all)
+  - [Recipe Actions](#recipe-actions)
+    - [POST /api/v1/like-recipe](#post-apiv1like-recipe)
+    - [POST /api/v1/unlike-recipe](#post-apiv1unlike-recipe)
+  - [Premium Upgrade](#premium-upgrade)
+    - [POST /api/v1/upgrade](#post-apiv1upgrade)
+  - [AI Integration](#ai-integration)
+    - [POST /api/v1/gen](#post-apiv1gen)
+
+## Tema, Resumo e Conclusão
+
+Link: https://docs.google.com/document/d/1Gy-wfDWftHmH_WTaEI12iTa69vRoDkEX-qQLkui1QPY/edit?usp=sharing
+
+## Regras de negócio e Histórias de usuário
+
+Link: https://docs.google.com/document/d/1juVeQnhg9aY4ck-DvhZLoUm1NzayuJhkpp8WUfNbVSI/edit?usp=sharing
+
+## Matriz de rastreabilidade de requisitos
+
+Link: [https://docs.google.com/spreadsheets/d/10C2Ntn1VEuH-RwxZjihrsML1-38haWXQ5grszJFyVW8/edit?usp=drive_link](https://docs.google.com/spreadsheets/d/10C2Ntn1VEuH-RwxZjihrsML1-38haWXQ5grszJFyVW8/edit?usp=sharing)
+
+## UML
+
+Link: https://lucid.app/lucidchart/invitations/accept/inv_27b8470d-31f6-4e42-9605-5c3f98f1abfd
+
+## Diagrama de classes
+
+Link: https://lucid.app/lucidchart/invitations/accept/inv_edbb30d0-2153-418c-9f4a-7940cd0e81bc
+
+## Wireframe
+
+![image](https://github.com/Renan-Parise/cucinia/assets/124601530/3e9265d3-fcc7-4aae-bc7c-56e8d59d93a9)
+
 
 ## Environment setup
 
