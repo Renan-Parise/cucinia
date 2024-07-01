@@ -61,11 +61,13 @@ Link: [https://docs.google.com/spreadsheets/d/10C2Ntn1VEuH-RwxZjihrsML1-38haWXQ5
 
 ## UML
 
-Link: https://lucid.app/lucidchart/invitations/accept/inv_27b8470d-31f6-4e42-9605-5c3f98f1abfd
+Link: [https://lucid.app/lucidchart/invitations/accept/inv_27b8470d-31f6-4e42-9605-5c3f98f1abfd
+](https://lucid.app/lucidchart/b10933dc-4d96-45ca-80ec-860a2d2982fe/edit?viewport_loc=-416%2C-641%2C1584%2C923%2C0_0&invitationId=inv_27b8470d-31f6-4e42-9605-5c3f98f1abfd)
 
 ## Diagrama de classes
 
-Link: https://lucid.app/lucidchart/invitations/accept/inv_edbb30d0-2153-418c-9f4a-7940cd0e81bc
+Link: [https://lucid.app/lucidchart/invitations/accept/inv_edbb30d0-2153-418c-9f4a-7940cd0e81bc
+](https://lucid.app/lucidchart/5532263d-901c-4bf1-b9a4-cb8858c2fd3b/edit?viewport_loc=-205%2C-675%2C3477%2C1608%2C0_0&invitationId=inv_edbb30d0-2153-418c-9f4a-7940cd0e81bc)
 
 ## Wireframe
 
