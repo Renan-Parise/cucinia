@@ -50,11 +50,11 @@
 ## Tema, Resumo e Conclusão
 
 Tema: Software de recomendação de receitas
-Link: https://docs.google.com/document/d/1Gy-wfDWftHmH_WTaEI12iTa69vRoDkEX-qQLkui1QPY/edit?usp=sharing
+Link: [https://docs.google.com/document/d/1Gy-wfDWftHmH_WTaEI12iTa69vRoDkEX-qQLkui1QPY/edit?usp=sharing](https://docs.google.com/document/d/1Gy-wfDWftHmH_WTaEI12iTa69vRoDkEX-qQLkui1QPY/edit?usp=sharing)
 
 ## Regras de negócio e Histórias de usuário
 
-Link: https://docs.google.com/document/d/1juVeQnhg9aY4ck-DvhZLoUm1NzayuJhkpp8WUfNbVSI/edit?usp=sharing
+Link: [https://docs.google.com/document/d/1juVeQnhg9aY4ck-DvhZLoUm1NzayuJhkpp8WUfNbVSI/edit?usp=sharing](https://docs.google.com/document/d/1juVeQnhg9aY4ck-DvhZLoUm1NzayuJhkpp8WUfNbVSI/edit?usp=sharing)
 
 ## Matriz de rastreabilidade de requisitos
 
