@@ -72,9 +72,9 @@ Link: [https://lucid.app/lucidchart/invitations/accept/inv_edbb30d0-2153-418c-9f
 
 ## Wireframe
 
-![image](https://github.com/Renan-Parise/cucinia/assets/124601530/3e9265d3-fcc7-4aae-bc7c-56e8d59d93a9)
 ![image](https://github.com/Renan-Parise/cucinia/assets/124601530/ccc04c0f-6d2a-429f-86bc-dd9912b685e1)
 ![image](https://github.com/Renan-Parise/cucinia/assets/124601530/43831788-8f00-414a-be54-4aa77268d788)
+![image](https://github.com/Renan-Parise/cucinia/assets/124601530/3e9265d3-fcc7-4aae-bc7c-56e8d59d93a9)
 ![image](https://github.com/Renan-Parise/cucinia/assets/124601530/29c68459-e5ed-4edf-adac-4228d6c8930a)
 ![image](https://github.com/Renan-Parise/cucinia/assets/124601530/6db20ecc-0ddb-4f98-b687-d3d8b10864e8)
 
