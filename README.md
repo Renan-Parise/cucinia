@@ -49,6 +49,7 @@
 
 ## Tema, Resumo e Conclusão
 
+Tema: Software de recomendação de receitas
 Link: https://docs.google.com/document/d/1Gy-wfDWftHmH_WTaEI12iTa69vRoDkEX-qQLkui1QPY/edit?usp=sharing
 
 ## Regras de negócio e Histórias de usuário
